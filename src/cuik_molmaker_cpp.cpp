@@ -37,7 +37,7 @@
 #include <torch/extension.h>
 
 // This is necessary to export Python functions in a Python module named cuik_molmaker.
-PYBIND11_MODULE(cuik_molmaker, m) {
+PYBIND11_MODULE(cuik_molmaker_cpp, m) {
     m.doc() = "Cuik MolMaker C++ plugin"; // Python module docstring
 
     // Functions in features.cpp

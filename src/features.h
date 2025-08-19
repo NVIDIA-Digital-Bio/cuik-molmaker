@@ -53,6 +53,10 @@ enum class AtomFloatFeature {
     DOUBLE_BOND,
     TRIPLE_BOND,
     IS_CARBON,
+    HYDROGEN_BOND_DONOR,
+    HYDROGEN_BOND_ACCEPTOR,
+    ACIDIC,
+    BASIC,
     UNKNOWN
 };
 
@@ -76,6 +80,7 @@ enum class AtomOneHotFeature {
     PERIOD,             //!< Specified by `atomicNumToPeriodTable` in float_features.h
     FORMAL_CHARGE,      //!< Formal charge on atom
     NUM_HYDROGENS,      //!< Total number of hydrogens (explicit and implicit) on an atom
+    RING_SIZE,          //!< Number of rings the atom is in
     UNKNOWN             //!< Sentinel value.  Do not use.
 };
 

@@ -269,6 +269,10 @@ static const std::unordered_map<std::string, int64_t> atom_float_name_to_enum{
     {std::string("double-bond"), int64_t(AtomFloatFeature::DOUBLE_BOND)},
     {std::string("triple-bond"), int64_t(AtomFloatFeature::TRIPLE_BOND)},
     {std::string("is-carbon"), int64_t(AtomFloatFeature::IS_CARBON)},
+    {std::string("hydrogen-bond-donor"), int64_t(AtomFloatFeature::HYDROGEN_BOND_DONOR)},
+    {std::string("hydrogen-bond-acceptor"), int64_t(AtomFloatFeature::HYDROGEN_BOND_ACCEPTOR)},
+    {std::string("acidic"), int64_t(AtomFloatFeature::ACIDIC)},
+    {std::string("basic"), int64_t(AtomFloatFeature::BASIC)},
 };
 
 // This is called from Python to list atom float features in a format that will be faster
@@ -317,6 +321,7 @@ static const std::unordered_map<std::string, int64_t> atom_onehot_name_to_enum{
     {std::string("period"), int64_t(AtomOneHotFeature::PERIOD)},
     {std::string("formal-charge"), int64_t(AtomOneHotFeature::FORMAL_CHARGE)},
     {std::string("num-hydrogens"), int64_t(AtomOneHotFeature::NUM_HYDROGENS)},
+    {std::string("ring-size"), int64_t(AtomOneHotFeature::RING_SIZE)},
 };
 
 // This is called from Python to list atom one-hot features in a format that will be faster

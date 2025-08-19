@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 cmake_minimum_required(VERSION 3.15)
-project(cuik_molmaker VERSION 0.1 LANGUAGES CXX)
+project(cuik_molmaker_cpp VERSION 0.1 LANGUAGES CXX)
 
 # Set C++20 standard
 set(CMAKE_CXX_STANDARD 20)
@@ -110,23 +110,23 @@ set_target_properties(cuik_molmaker_core PROPERTIES
     BUILD_WITH_INSTALL_RPATH TRUE
 )
 # Create the Python module using the core library
-pybind11_add_module(cuik_molmaker
+pybind11_add_module(cuik_molmaker_cpp
     src/cuik_molmaker_cpp.cpp
 )
 
 # Link the Python module against the core library
-target_link_libraries(cuik_molmaker PRIVATE
+target_link_libraries(cuik_molmaker_cpp PRIVATE
     cuik_molmaker_core
 )
 
 # Set RPATH for the Python module
-set_target_properties(cuik_molmaker PROPERTIES
+set_target_properties(cuik_molmaker_cpp PROPERTIES
     INSTALL_RPATH "\$ORIGIN/../../..:\$ORIGIN/lib"
     BUILD_WITH_INSTALL_RPATH TRUE
 )
 
 # Set installation targets
-install(TARGETS cuik_molmaker
+install(TARGETS cuik_molmaker_cpp
     LIBRARY DESTINATION ${Python_SITELIB}
     RUNTIME DESTINATION ${Python_SITELIB}
 )

@@ -13,10 +13,13 @@
 #include <GraphMol/PeriodicTable.h>
 #include <GraphMol/ROMol.h>
 #include <GraphMol/DistGeomHelpers/Embedder.h>
+#include <GraphMol/Substruct/SubstructMatch.h>
+#include <GraphMol/SmilesParse/SmilesParse.h>
 #include <RDGeneral/types.h>
 
 #include <stdint.h>
 #include <cmath>
+#include <iostream>
 
 static constexpr double qNaN = std::numeric_limits<double>::quiet_NaN();
 
@@ -203,6 +206,75 @@ void get_atom_float_feature(const GraphData& graph, T* data, AtomFloatFeature fe
         for (uint32_t i = 0; i < num_atoms; ++i) {
             *data = FeatureValues<T>::convertToFeatureType(MT(graph.atoms[i].atomicNum == carbon_atomic_num) - offset);
             data += stride;
+        }
+        return;
+    }
+    case AtomFloatFeature::HYDROGEN_BOND_DONOR: {
+        const RDKit::ROMol& mol = *graph.mol.get();
+        std::string hbd_smarts = "[$([N;!H0;v3,v4&+1]),$([O,S;H1;+0]),n&H1&+0]";
+        std::unique_ptr<RDKit::RWMol> hbd_mol(RDKit::SmartsToMol(hbd_smarts));
+
+        std::vector<RDKit::MatchVectType> matches;
+        RDKit::SubstructMatch(mol, *hbd_mol, matches);
+
+        // Initialize all values to 0
+        for (uint32_t i = 0; i < num_atoms; ++i) {
+            data[i * stride] = FeatureValues<T>::convertToFeatureType(MT(0));
+        }
+        for (const auto& match : matches) {
+            data[match[0].second * stride] = FeatureValues<T>::convertToFeatureType(MT(1));
+        }
+        return;
+    }
+    case AtomFloatFeature::HYDROGEN_BOND_ACCEPTOR: {
+        const RDKit::ROMol& mol = *graph.mol.get();
+        std::string hba_smarts = "[$([O,S;H1;v2;!$(*-*=[O,N,P,S])]),$([O,S;H0;v2]),$([O,S;-]),$([N;v3;!$(N-*=[O,N,P,S])]),"
+            "n&H0&+0,$([o,s;+0;!$([o,s]:n);!$([o,s]:c:n)])]";
+        std::unique_ptr<RDKit::RWMol> hba_mol(RDKit::SmartsToMol(hba_smarts));
+
+        std::vector<RDKit::MatchVectType> matches;
+
+        // Initialize all values to 0
+        for (uint32_t i = 0; i < num_atoms; ++i) {
+            data[i * stride] = FeatureValues<T>::convertToFeatureType(MT(0));
+        }
+        RDKit::SubstructMatch(mol, *hba_mol, matches);
+        for (const auto& match : matches) {
+            data[match[0].second * stride] = FeatureValues<T>::convertToFeatureType(MT(1));
+        }
+        return;
+    }
+    case AtomFloatFeature::ACIDIC: {
+        const RDKit::ROMol& mol = *graph.mol.get();
+        std::string acidic_smarts = "[$([C,S](=[O,S,P])-[O;H1,-1])]";
+        std::unique_ptr<RDKit::RWMol> acidic_mol(RDKit::SmartsToMol(acidic_smarts));
+
+        std::vector<RDKit::MatchVectType> matches;
+        RDKit::SubstructMatch(mol, *acidic_mol, matches);
+
+        // Initialize all values to 0
+        for (uint32_t i = 0; i < num_atoms; ++i) {
+            data[i * stride] = FeatureValues<T>::convertToFeatureType(MT(0));
+        }
+        for (const auto& match : matches) {
+            data[match[0].second * stride] = FeatureValues<T>::convertToFeatureType(MT(1));
+        }
+        return;
+    }
+    case AtomFloatFeature::BASIC: {
+        const RDKit::ROMol& mol = *graph.mol.get();
+        std::string basic_smarts = "[#7;+,$([N;H2&+0][$([C,a]);!$([C,a](=O))]),$([N;H1&+0]([$([C,a]);!$([C,a](=O))])[$([C,a]);!$([C,a](=O))]),$([N;H0&+0]([C;!$(C(=O))])([C;!$(C(=O))])[C;!$(C(=O))])]";
+        std::unique_ptr<RDKit::RWMol> basic_mol(RDKit::SmartsToMol(basic_smarts));
+
+        std::vector<RDKit::MatchVectType> matches;
+        RDKit::SubstructMatch(mol, *basic_mol, matches);
+
+        // Initialize all values to 0
+        for (uint32_t i = 0; i < num_atoms; ++i) {
+            data[i * stride] = FeatureValues<T>::convertToFeatureType(MT(0));
+        }
+        for (const auto& match : matches) {
+            data[match[0].second * stride] = FeatureValues<T>::convertToFeatureType(MT(1));
         }
         return;
     }

@@ -10,6 +10,7 @@
 
 #include <GraphMol/ROMol.h>
 #include <RDGeneral/types.h>
+#include <GraphMol/RingInfo.h>
 
 #include <stdint.h>
 #include <string>
@@ -52,6 +53,7 @@ constexpr size_t totalDegreeCount = 6;
 constexpr size_t valenceCount = 7;
 constexpr size_t chiralityCount = 4;
 constexpr size_t numHydrogensCount = 5;
+constexpr size_t ringSizeCount = 6;
 
 constexpr size_t hybridizationList[] = {
     RDKit::Atom::HybridizationType::SP,
@@ -185,6 +187,7 @@ size_t get_one_hot_atom_feature_size(AtomOneHotFeature feature) {
     case AtomOneHotFeature::PERIOD:           return periodCount + 1;
     case AtomOneHotFeature::FORMAL_CHARGE:           return formalChargeCount + 1;
     case AtomOneHotFeature::NUM_HYDROGENS:           return numHydrogensCount + 1;
+    case AtomOneHotFeature::RING_SIZE:              return ringSizeCount;
 
     default:
         // Missing implementation
@@ -319,6 +322,23 @@ size_t get_one_hot_atom_feature(const GraphData& graph, T* data, AtomOneHotFeatu
         for (size_t atomIndex = 0; atomIndex < num_atoms; ++atomIndex, data += stride) {
             int numHydrogens = graph.atoms[atomIndex].totalNumHs;
             data[(numHydrogens >= numHydrogensCount) ? numHydrogensCount : numHydrogens] = FeatureValues<T>::one;
+        }
+        return feature_size;
+    case AtomOneHotFeature::RING_SIZE:
+        {
+            RDKit::RingInfo& ringInfo = *mol.getRingInfo();
+            if (!ringInfo.isInitialized()) {
+                throw std::runtime_error("RingInfo is not initialized");
+            }
+            for (size_t atomIndex = 0; atomIndex < num_atoms; ++atomIndex, data += stride) {
+                std::vector<int> ringSizes = ringInfo.atomRingSizes(atomIndex);
+                for (size_t i = 0; i < ringSizes.size(); ++i) {
+                    // Ring sizes from 3 - 8 marked
+                    if (ringSizes[i] <= 8) {
+                        data[ringSizes[i]-3] = FeatureValues<T>::one;
+                    }
+                }
+            }
         }
         return feature_size;
 

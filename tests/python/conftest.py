@@ -36,3 +36,8 @@ def test_data_path():
 def smiles_list_100(test_data_path):
     df = pd.read_csv(os.path.join(test_data_path, "sample_smiles_100.csv"))
     return df["canonical_smiles"].tolist()
+
+@pytest.fixture
+def rdkit2D_desc_df(test_data_path):
+    df = pd.read_csv(os.path.join(test_data_path, "rdkit2D_desc.csv"))
+    return df

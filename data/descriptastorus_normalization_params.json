@@ -1,0 +1,3046 @@
+/* These normalization parameters are taken from the Descriptastorus package.
+ *  They are provided here only for reference.
+*/
+{
+    "VSA_EState1": {
+        "normalization_type": "continuous",
+        "normalization_name": "betaprime",
+        "params": [
+            0.12979362790686721,
+            2.0084510281921832,
+            -1.7874327445880742e-34,
+            0.4022005514286884
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 0.0,
+            "data_mean": 0.0,
+            "data_std": 0.0
+        }
+    },
+    "Chi4n": {
+        "normalization_type": "continuous",
+        "normalization_name": "mielke",
+        "params": [
+            3.4334547302721328,
+            4.644325894559659,
+            -0.1540765028544061,
+            3.7724626101152783
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 60.15570624032009,
+            "data_mean": 3.5583748823804937,
+            "data_std": 1.9340011133496022
+        }
+    },
+    "EState_VSA3": {
+        "normalization_type": "continuous",
+        "normalization_name": "pearson3",
+        "params": [
+            1.2130333692507862,
+            20.490424246483514,
+            14.913598628728794
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 707.4193712196022,
+            "data_mean": 20.490458921014422,
+            "data_std": 15.02692979610578
+        }
+    },
+    "PEOE_VSA3": {
+        "normalization_type": "continuous",
+        "normalization_name": "recipinvgauss",
+        "params": [
+            2039990.2035692804,
+            -1.514157558116536e-12,
+            5.862765691466683
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 278.49556054006456,
+            "data_mean": 5.883620301814973,
+            "data_std": 7.114346140218968
+        }
+    },
+    "PEOE_VSA10": {
+        "normalization_type": "continuous",
+        "normalization_name": "ncx2",
+        "params": [
+            1.2634981555275662,
+            2.1503143438355354,
+            -2.21123444897305e-31,
+            2.606409115395213
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 494.0556831191233,
+            "data_mean": 9.763622525936078,
+            "data_std": 12.915305068064065
+        }
+    },
+    "Chi2v": {
+        "normalization_type": "continuous",
+        "normalization_name": "fisk",
+        "params": [
+            5.416294252795936,
+            -0.46711733318914683,
+            7.911730855234288
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 152.03415385974233,
+            "data_mean": 7.97051218652611,
+            "data_std": 4.006279197425447
+        }
+    },
+    "SMR_VSA8": {
+        "normalization_type": "continuous",
+        "normalization_name": "betaprime",
+        "params": [
+            0.12979362790686721,
+            2.0084510281921832,
+            -1.7874327445880742e-34,
+            0.4022005514286884
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 0.0,
+            "data_mean": 0.0,
+            "data_std": 0.0
+        }
+    },
+    "ExactMolWt": {
+        "normalization_type": "continuous",
+        "normalization_name": "mielke",
+        "params": [
+            6.030507225812184,
+            6.081069808326847,
+            -3.1905715544779594,
+            393.79789827541134
+        ],
+        "data_stats": {
+            "data_min": 7.01545597009,
+            "data_max": 7902.703267132,
+            "data_mean": 413.2180535712111,
+            "data_std": 196.11660291127603
+        }
+    },
+    "fr_imidazole": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.017711130586117518,
+            0.05908774988990952
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 11,
+            "data_mean": 0.10202714189993299,
+            "data_std": 0.35905461339251266
+        }
+    },
+    "fr_aldehyde": {
+        "normalization_type": "continuous",
+        "normalization_name": "halflogistic",
+        "params": [
+            -2.2802084549638172e-10,
+            0.003260151958473212
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 2,
+            "data_mean": 0.0032602282159751184,
+            "data_std": 0.057529151986179125
+        }
+    },
+    "fr_Al_COO": {
+        "normalization_type": "continuous",
+        "normalization_name": "beta",
+        "params": [
+            0.6951891478660377,
+            401.3878921392054,
+            -1.8490162599417683e-28,
+            14.902552079575546
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 9,
+            "data_mean": 0.05697398817917254,
+            "data_std": 0.2720833952111172
+        }
+    },
+    "NumAliphaticHeterocycles": {
+        "normalization_type": "continuous",
+        "normalization_name": "alpha",
+        "params": [
+            5.571361455216543e-09,
+            -0.07477286399593108,
+            0.10965986221560856
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 22,
+            "data_mean": 0.7546628263978479,
+            "data_std": 0.9186038062617755
+        }
+    },
+    "fr_Ar_NH": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.01991313112984635,
+            0.06651081784403591
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 13,
+            "data_mean": 0.11327792945506185,
+            "data_std": 0.37297284960554855
+        }
+    },
+    "NumHAcceptors": {
+        "normalization_type": "continuous",
+        "normalization_name": "logistic",
+        "params": [
+            5.039523695264815,
+            1.2773064178194637
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 199,
+            "data_mean": 5.285449981498705,
+            "data_std": 3.9293707904214674
+        }
+    },
+    "fr_lactam": {
+        "normalization_type": "continuous",
+        "normalization_name": "halflogistic",
+        "params": [
+            -1.9994772259051099e-10,
+            0.0019599976691355514
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 2,
+            "data_mean": 0.0019601372096046724,
+            "data_std": 0.04490322117641692
+        }
+    },
+    "fr_NH2": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.025886531735103906,
+            0.08666379088388962
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 17,
+            "data_mean": 0.14403008210574741,
+            "data_std": 0.5080894197040707
+        }
+    },
+    "fr_Ndealkylation1": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.014170257884871005,
+            0.047146436951077536
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 8,
+            "data_mean": 0.08431590211314792,
+            "data_std": 0.3528598050157884
+        }
+    },
+    "SlogP_VSA7": {
+        "normalization_type": "continuous",
+        "normalization_name": "recipinvgauss",
+        "params": [
+            124626.03395996531,
+            -5.039104162427062e-11,
+            0.4157942168226829
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 77.05538951387919,
+            "data_mean": 1.1814079834441082,
+            "data_std": 2.9446812598365155
+        }
+    },
+    "fr_Ar_N": {
+        "normalization_type": "continuous",
+        "normalization_name": "halfgennorm",
+        "params": [
+            0.32377704425495,
+            -8.49433587779278e-22,
+            0.010554705354503424
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 66,
+            "data_mean": 1.3546848279379557,
+            "data_std": 1.7700301662397686
+        }
+    },
+    "NumSaturatedHeterocycles": {
+        "normalization_type": "continuous",
+        "normalization_name": "halfgennorm",
+        "params": [
+            0.39340463716320073,
+            -3.084884622335595e-23,
+            0.007755844850523552
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 22,
+            "data_mean": 0.545018151270589,
+            "data_std": 0.8423690871097294
+        }
+    },
+    "NumAliphaticRings": {
+        "normalization_type": "continuous",
+        "normalization_name": "gennorm",
+        "params": [
+            0.16214999420806342,
+            1.0000000000000002,
+            1.2644170558638866e-06
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 24,
+            "data_mean": 0.9787585130959167,
+            "data_std": 1.0878564569993276
+        }
+    },
+    "SMR_VSA4": {
+        "normalization_type": "continuous",
+        "normalization_name": "betaprime",
+        "params": [
+            0.8177035716382387,
+            2.026000293708502,
+            -2.7076233813444817e-29,
+            0.8955328046106019
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 169.22417394169068,
+            "data_mean": 3.521664764716257,
+            "data_std": 6.367910012270387
+        }
+    },
+    "Chi0v": {
+        "normalization_type": "continuous",
+        "normalization_name": "mielke",
+        "params": [
+            5.8775750667785065,
+            5.969290153282742,
+            -0.051645183224216795,
+            16.255522569236142
+        ],
+        "data_stats": {
+            "data_min": 1.0,
+            "data_max": 310.3665679014367,
+            "data_mean": 17.129538294841,
+            "data_std": 7.923870846730872
+        }
+    },
+    "qed": {
+        "normalization_type": "continuous",
+        "normalization_name": "johnsonsb",
+        "params": [
+            -0.537683817552717,
+            0.9438392221113977,
+            -0.05971660981816428,
+            1.0270014571751256
+        ],
+        "data_stats": {
+            "data_min": 0.001610010104943233,
+            "data_max": 0.9484019712261345,
+            "data_mean": 0.5707778636205341,
+            "data_std": 0.21314724659491038
+        }
+    },
+    "fr_sulfonamd": {
+        "normalization_type": "continuous",
+        "normalization_name": "betaprime",
+        "params": [
+            0.6061868535729906,
+            2.47005272151398,
+            -1.7109734983680305e-30,
+            0.024136054923030247
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 2,
+            "data_mean": 0.09929695078655505,
+            "data_std": 0.3106727570704293
+        }
+    },
+    "fr_halogen": {
+        "normalization_type": "continuous",
+        "normalization_name": "exponweib",
+        "params": [
+            1.5936220372251417,
+            0.4773265592552294,
+            -6.305557196427465e-30,
+            0.11136163589207024
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 22,
+            "data_mean": 0.6656565959617173,
+            "data_std": 1.1538784657180654
+        }
+    },
+    "Chi4v": {
+        "normalization_type": "continuous",
+        "normalization_name": "mielke",
+        "params": [
+            3.641407704651825,
+            4.9160753250874905,
+            -0.19612721404766648,
+            4.272311768092421
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 80.31016831275534,
+            "data_mean": 3.997197941292901,
+            "data_std": 2.1822145921791463
+        }
+    },
+    "MolLogP": {
+        "normalization_type": "continuous",
+        "normalization_name": "nct",
+        "params": [
+            5.423133497140618,
+            -0.2505422147848311,
+            3.787125066469563,
+            1.447521060093181
+        ],
+        "data_stats": {
+            "data_min": -27.121900000000043,
+            "data_max": 26.476990000000036,
+            "data_mean": 3.357664737331615,
+            "data_std": 1.8518910248841818
+        }
+    },
+    "Chi2n": {
+        "normalization_type": "continuous",
+        "normalization_name": "burr",
+        "params": [
+            5.323167832131418,
+            0.9614449953883716,
+            -0.5182229173193543,
+            7.403200388112394
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 140.4224584835206,
+            "data_mean": 7.320378282785918,
+            "data_std": 3.6830713407241156
+        }
+    },
+    "fr_Al_OH": {
+        "normalization_type": "continuous",
+        "normalization_name": "pareto",
+        "params": [
+            8.075644989366163,
+            -0.6961711017351564,
+            0.6961711017065046
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 37,
+            "data_mean": 0.18985328973028112,
+            "data_std": 0.5806908433990465
+        }
+    },
+    "LabuteASA": {
+        "normalization_type": "continuous",
+        "normalization_name": "mielke",
+        "params": [
+            5.9033344150609555,
+            6.093254767597408,
+            -1.1647561264561102,
+            165.59359494140412
+        ],
+        "data_stats": {
+            "data_min": 19.375022664857827,
+            "data_max": 3138.810989711936,
+            "data_mean": 172.78618537968595,
+            "data_std": 78.72241596326842
+        }
+    },
+    "SMR_VSA5": {
+        "normalization_type": "continuous",
+        "normalization_name": "johnsonsu",
+        "params": [
+            -6.770383826447828,
+            1.5639816052567266,
+            -8.885737844117894,
+            0.8747218279195421
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 1059.7000355910607,
+            "data_mean": 31.92088861776502,
+            "data_std": 31.701702832660054
+        }
+    },
+    "fr_guanido": {
+        "normalization_type": "continuous",
+        "normalization_name": "halflogistic",
+        "params": [
+            -2.8948632876909134e-11,
+            0.012390710083318518
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 8,
+            "data_mean": 0.012390867360715251,
+            "data_std": 0.1352692056473331
+        }
+    },
+    "SlogP_VSA6": {
+        "normalization_type": "continuous",
+        "normalization_name": "dweibull",
+        "params": [
+            1.2651196828193871,
+            44.8855208417171,
+            19.999416617652344
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 425.50532391912986,
+            "data_mean": 46.86150277566015,
+            "data_std": 23.994033852363053
+        }
+    },
+    "NumRadicalElectrons": {
+        "normalization_type": "continuous",
+        "normalization_name": "halfnorm",
+        "params": [
+            -3.3556536839857015e-09,
+            0.047012245813331466
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 10,
+            "data_mean": 0.0002900203014210995,
+            "data_std": 0.047011387972006546
+        }
+    },
+    "HeavyAtomCount": {
+        "normalization_type": "continuous",
+        "normalization_name": "mielke",
+        "params": [
+            5.542942710744559,
+            6.0129203920305345,
+            -0.10475651052005365,
+            28.19145327714555
+        ],
+        "data_stats": {
+            "data_min": 1,
+            "data_max": 545,
+            "data_mean": 29.187713139919794,
+            "data_std": 13.728021647131865
+        }
+    },
+    "fr_Ar_COO": {
+        "normalization_type": "continuous",
+        "normalization_name": "pearson3",
+        "params": [
+            2.284860216852766,
+            0.009533409939207087,
+            0.010891254550521512
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 4,
+            "data_mean": 0.019321352494674628,
+            "data_std": 0.14278703946614923
+        }
+    },
+    "fr_ester": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.021345006038942453,
+            0.07132669030690274
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 9,
+            "data_mean": 0.12089846289240247,
+            "data_std": 0.3816605577678055
+        }
+    },
+    "NumSaturatedCarbocycles": {
+        "normalization_type": "continuous",
+        "normalization_name": "invweibull",
+        "params": [
+            0.6897602654592729,
+            -1.687045423250026e-28,
+            0.04100428545396396
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 9,
+            "data_mean": 0.16625163761463302,
+            "data_std": 0.5048961994063688
+        }
+    },
+    "MolMR": {
+        "normalization_type": "continuous",
+        "normalization_name": "burr",
+        "params": [
+            6.172170768729716,
+            0.8936060537538131,
+            -0.6260689145704982,
+            109.36170666360255
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 1943.4740000000081,
+            "data_mean": 111.75295175062253,
+            "data_std": 49.21222833407792
+        }
+    },
+    "fr_SH": {
+        "normalization_type": "continuous",
+        "normalization_name": "halflogistic",
+        "params": [
+            -5.627308315330754e-10,
+            0.002940168145955494
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 2,
+            "data_mean": 0.0029402058144070084,
+            "data_std": 0.057719918625515
+        }
+    },
+    "fr_ketone_Topliss": {
+        "normalization_type": "continuous",
+        "normalization_name": "invweibull",
+        "params": [
+            0.7845359779027771,
+            -5.104827196981351e-29,
+            0.013651958761797665
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 5,
+            "data_mean": 0.052113647955356876,
+            "data_std": 0.24762602874204098
+        }
+    },
+    "MolWt": {
+        "normalization_type": "continuous",
+        "normalization_name": "burr",
+        "params": [
+            6.292103975443265,
+            0.9448356544126613,
+            -2.576132139748636,
+            398.4147809834958
+        ],
+        "data_stats": {
+            "data_min": 6.941,
+            "data_max": 7906.685999999983,
+            "data_mean": 413.6754726605188,
+            "data_std": 196.24518387547647
+        }
+    },
+    "Kappa1": {
+        "normalization_type": "continuous",
+        "normalization_name": "fisk",
+        "params": [
+            5.090249068250488,
+            1.5243046476343975,
+            17.457634086393984
+        ],
+        "data_stats": {
+            "data_min": 1.5974025974025972,
+            "data_max": 452.4780879471051,
+            "data_mean": 20.511369181587643,
+            "data_std": 10.901150147628785
+        }
+    },
+    "fr_term_acetylene": {
+        "normalization_type": "continuous",
+        "normalization_name": "tukeylambda",
+        "params": [
+            1.56196184906287,
+            0.005212203460720155,
+            0.008141262955574484
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 2,
+            "data_mean": 0.004260298220875461,
+            "data_std": 0.06634877000162641
+        }
+    },
+    "Chi0n": {
+        "normalization_type": "continuous",
+        "normalization_name": "mielke",
+        "params": [
+            4.913702328256858,
+            5.56535100301131,
+            0.892757720674525,
+            15.151908382349568
+        ],
+        "data_stats": {
+            "data_min": 1.0,
+            "data_max": 310.3665679014367,
+            "data_mean": 16.565702068330904,
+            "data_std": 7.789694974456289
+        }
+    },
+    "SMR_VSA9": {
+        "normalization_type": "continuous",
+        "normalization_name": "betaprime",
+        "params": [
+            0.6371524412800221,
+            0.1653001011937434,
+            -1.1096304834919027e-26,
+            0.008200829448013355
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 68.99414199940686,
+            "data_mean": 6.711933474546377,
+            "data_std": 7.898303955057197
+        }
+    },
+    "fr_hdrzine": {
+        "normalization_type": "continuous",
+        "normalization_name": "genexpon",
+        "params": [
+            2.2033965201556205,
+            4.581950155773536e-11,
+            1.9344067808226306,
+            -6.071473724440753e-12,
+            0.021418241524934097
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 3,
+            "data_mean": 0.009720680447631334,
+            "data_std": 0.10023082470639716
+        }
+    },
+    "PEOE_VSA11": {
+        "normalization_type": "continuous",
+        "normalization_name": "betaprime",
+        "params": [
+            0.5343466300982029,
+            2.0391606100747115,
+            -5.644268412961732e-28,
+            1.3724974434068684
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 130.7949739456163,
+            "data_mean": 3.9163487225567097,
+            "data_std": 6.085123241223355
+        }
+    },
+    "PEOE_VSA2": {
+        "normalization_type": "continuous",
+        "normalization_name": "genlogistic",
+        "params": [
+            1025.7536859090253,
+            -32.00326592275044,
+            5.426751909719114
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 436.5016359224807,
+            "data_mean": 8.968372740727396,
+            "data_std": 10.688899230076526
+        }
+    },
+    "fr_C_O": {
+        "normalization_type": "continuous",
+        "normalization_name": "dweibull",
+        "params": [
+            0.799241338494272,
+            1.0000000000000002,
+            1.1376361682177123
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 79,
+            "data_mean": 1.3462142349964497,
+            "data_std": 1.7126177063621493
+        }
+    },
+    "EState_VSA2": {
+        "normalization_type": "continuous",
+        "normalization_name": "dgamma",
+        "params": [
+            1.6208597357735999,
+            14.722163518402503,
+            5.927601342234055
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 348.2229478088118,
+            "data_mean": 16.17693847024966,
+            "data_std": 14.300245340171864
+        }
+    },
+    "fr_aryl_methyl": {
+        "normalization_type": "continuous",
+        "normalization_name": "pareto",
+        "params": [
+            2.2590951540541755,
+            -0.03484369022048178,
+            0.03484369021605811
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 10,
+            "data_mean": 0.42467972758093064,
+            "data_std": 0.7334626175897146
+        }
+    },
+    "EState_VSA9": {
+        "normalization_type": "continuous",
+        "normalization_name": "gompertz",
+        "params": [
+            157762717330.9355,
+            -8.297980815964564e-12,
+            1740272081706.4692
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 459.53012783207976,
+            "data_mean": 9.405433826279932,
+            "data_std": 11.29251583636432
+        }
+    },
+    "SlogP_VSA1": {
+        "normalization_type": "continuous",
+        "normalization_name": "betaprime",
+        "params": [
+            24.555424043054373,
+            8.676784435768978,
+            -8.426380550481028,
+            5.728625412480383
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 409.4953592555066,
+            "data_mean": 9.984737467652149,
+            "data_std": 9.779830593415184
+        }
+    },
+    "PEOE_VSA9": {
+        "normalization_type": "continuous",
+        "normalization_name": "betaprime",
+        "params": [
+            3.445175492809242,
+            31.144739014821592,
+            -4.51163967848681,
+            170.01655826137412
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 811.1436563731141,
+            "data_mean": 14.95011048070105,
+            "data_std": 13.041254445054955
+        }
+    },
+    "SMR_VSA2": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.048767578220460746,
+            0.16186950174913545
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 43.27426884633218,
+            "data_mean": 0.29905148573740525,
+            "data_std": 1.360442550951591
+        }
+    },
+    "fr_quatN": {
+        "normalization_type": "continuous",
+        "normalization_name": "halflogistic",
+        "params": [
+            -1.8398640615463982e-10,
+            0.0022802512521409345
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 2,
+            "data_mean": 0.002280159611172782,
+            "data_std": 0.05094097451844112
+        }
+    },
+    "fr_dihydropyridine": {
+        "normalization_type": "continuous",
+        "normalization_name": "tukeylambda",
+        "params": [
+            1.5508163529247363,
+            0.002932569691259215,
+            0.004547877033296321
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 1,
+            "data_mean": 0.002350164511515806,
+            "data_std": 0.04842149562213685
+        }
+    },
+    "MinPartialCharge": {
+        "normalization_type": "continuous",
+        "normalization_name": "johnsonsu",
+        "params": [
+            -2.7149539980911284,
+            1.0038367476615098,
+            -0.5139064061681397,
+            0.008495052829614172
+        ],
+        "data_stats": {
+            "data_min": -0.7539104058810929,
+            "data_max": 1.0,
+            "data_mean": -0.4200780304196831,
+            "data_std": 0.07189165509088434
+        }
+    },
+    "fr_ketone": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.01054998963908324,
+            0.035036217635414556
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 6,
+            "data_mean": 0.06421449501465103,
+            "data_std": 0.27790680727297107
+        }
+    },
+    "MaxAbsEStateIndex": {
+        "normalization_type": "continuous",
+        "normalization_name": "t",
+        "params": [
+            1.3108542430395254,
+            12.75352190648762,
+            0.7106673064513349
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 18.093289294329608,
+            "data_mean": 12.009719840202807,
+            "data_std": 2.3499823939671187
+        }
+    },
+    "MaxAbsPartialCharge": {
+        "normalization_type": "continuous",
+        "normalization_name": "johnsonsu",
+        "params": [
+            1.7917111012287341,
+            0.9884411996798824,
+            0.509455736564852,
+            0.019080208112214614
+        ],
+        "data_stats": {
+            "data_min": 0.044672166080629815,
+            "data_max": 3.0,
+            "data_mean": 0.4246995864209025,
+            "data_std": 0.07158969964653725
+        }
+    },
+    "Chi1v": {
+        "normalization_type": "continuous",
+        "normalization_name": "burr",
+        "params": [
+            7.687954133980298,
+            1.4497345379886477,
+            -5.291458017141911,
+            14.007066785153341
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 193.52184470749225,
+            "data_mean": 10.233294455235377,
+            "data_std": 4.9372866377359905
+        }
+    },
+    "fr_benzodiazepine": {
+        "normalization_type": "continuous",
+        "normalization_name": "tukeylambda",
+        "params": [
+            1.5687789926087756,
+            0.0024158367934644202,
+            0.0037899140207594472
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 1,
+            "data_mean": 0.0019601372096046724,
+            "data_std": 0.04423002455034584
+        }
+    },
+    "EState_VSA5": {
+        "normalization_type": "continuous",
+        "normalization_name": "exponweib",
+        "params": [
+            0.2671814730479748,
+            1.165636178704992,
+            -1.382245994068274e-31,
+            22.76769085633479
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 352.5201628431787,
+            "data_mean": 13.722297283129771,
+            "data_std": 14.369271762415691
+        }
+    },
+    "VSA_EState7": {
+        "normalization_type": "continuous",
+        "normalization_name": "loggamma",
+        "params": [
+            0.00016582407490511742,
+            4.690543031567471e-07,
+            5.38971779436177e-08
+        ],
+        "data_stats": {
+            "data_min": -0.23935820315780676,
+            "data_max": 0.0,
+            "data_mean": -2.393749594049651e-06,
+            "data_std": 0.0007569398071209723
+        }
+    },
+    "fr_C_O_noCOO": {
+        "normalization_type": "continuous",
+        "normalization_name": "gennorm",
+        "params": [
+            0.3061307987512025,
+            1.0,
+            0.0046024831025323395
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 71,
+            "data_mean": 1.2699788985228966,
+            "data_std": 1.6247465287374963
+        }
+    },
+    "Chi3v": {
+        "normalization_type": "continuous",
+        "normalization_name": "mielke",
+        "params": [
+            4.392997381604184,
+            5.27028468604366,
+            -0.32791696488665867,
+            5.890409366481655
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 106.26777041156456,
+            "data_mean": 5.646449010813653,
+            "data_std": 2.881905780196624
+        }
+    },
+    "PEOE_VSA5": {
+        "normalization_type": "continuous",
+        "normalization_name": "gibrat",
+        "params": [
+            -0.04993824025443838,
+            0.13664006325267003
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 73.11939707590946,
+            "data_mean": 2.0398397458425537,
+            "data_std": 4.669463461453408
+        }
+    },
+    "fr_epoxide": {
+        "normalization_type": "continuous",
+        "normalization_name": "hypsecant",
+        "params": [
+            9.775361773901804e-06,
+            0.004229322664644675
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 3,
+            "data_mean": 0.0015001050073505146,
+            "data_std": 0.041205202260121296
+        }
+    },
+    "fr_prisulfonamd": {
+        "normalization_type": "continuous",
+        "normalization_name": "betaprime",
+        "params": [
+            0.12979362790686721,
+            2.0084510281921832,
+            -1.7874327445880742e-34,
+            0.4022005514286884
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 0,
+            "data_mean": 0.0,
+            "data_std": 0.0
+        }
+    },
+    "fr_phenol": {
+        "normalization_type": "continuous",
+        "normalization_name": "invweibull",
+        "params": [
+            0.8135991555193818,
+            -4.806156168974463e-28,
+            0.016229148422267782
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 8,
+            "data_mean": 0.05026351844629124,
+            "data_std": 0.2534132017880052
+        }
+    },
+    "fr_sulfide": {
+        "normalization_type": "continuous",
+        "normalization_name": "gengamma",
+        "params": [
+            1.5106281082392625,
+            0.5574261640341269,
+            -4.4413855396989186e-30,
+            0.0038351572717300027
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 6,
+            "data_mean": 0.08101567109697679,
+            "data_std": 0.2882927997299278
+        }
+    },
+    "fr_alkyl_halide": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.04358050576953841,
+            0.1452321478197392
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 17,
+            "data_mean": 0.25484783934875443,
+            "data_std": 0.9066667900753467
+        }
+    },
+    "NumAromaticHeterocycles": {
+        "normalization_type": "continuous",
+        "normalization_name": "halfgennorm",
+        "params": [
+            0.19057145504745865,
+            -1.897689882032624e-17,
+            2.1261316374019246e-05
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 33,
+            "data_mean": 0.9458862120348425,
+            "data_std": 1.0262824322901387
+        }
+    },
+    "fr_Ar_OH": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.0100135027386673,
+            0.03324263418577556
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 8,
+            "data_mean": 0.06124428710009701,
+            "data_std": 0.2766130074506664
+        }
+    },
+    "fr_thiazole": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.007257531762340398,
+            0.024068128495977677
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 6,
+            "data_mean": 0.04502315162061344,
+            "data_std": 0.217339283746722
+        }
+    },
+    "fr_imide": {
+        "normalization_type": "continuous",
+        "normalization_name": "pearson3",
+        "params": [
+            2.2221583002327714,
+            0.018063449381832734,
+            0.02006992198733707
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 6,
+            "data_mean": 0.02752192653485744,
+            "data_std": 0.1778336591269578
+        }
+    },
+    "NumSaturatedRings": {
+        "normalization_type": "continuous",
+        "normalization_name": "halfgennorm",
+        "params": [
+            0.23246838885007082,
+            -2.4267394888596534e-25,
+            0.00026458005932038795
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 22,
+            "data_mean": 0.711269788885222,
+            "data_std": 0.9971159900281824
+        }
+    },
+    "fr_hdrzone": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.003105521778228028,
+            0.010274411296672493
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 2,
+            "data_mean": 0.019951396597761843,
+            "data_std": 0.14280545219170362
+        }
+    },
+    "fr_lactone": {
+        "normalization_type": "continuous",
+        "normalization_name": "tukeylambda",
+        "params": [
+            1.527151454037369,
+            0.013585748455595358,
+            0.020747495508148833
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 6,
+            "data_mean": 0.011000770053903774,
+            "data_std": 0.11242720454031359
+        }
+    },
+    "FractionCSP3": {
+        "normalization_type": "continuous",
+        "normalization_name": "gausshyper",
+        "params": [
+            0.4771522405083861,
+            9.066071275571563,
+            -7.620494949081857,
+            3.1818106084013347,
+            -4.691817003086665e-28,
+            1.3215636376781599
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 1.0,
+            "data_mean": 0.3432847243844843,
+            "data_std": 0.19586440800503926
+        }
+    },
+    "HallKierAlpha": {
+        "normalization_type": "continuous",
+        "normalization_name": "logistic",
+        "params": [
+            -2.756871651517898,
+            0.6249482292466357
+        ],
+        "data_stats": {
+            "data_min": -56.5600000000003,
+            "data_max": 3.0300000000000002,
+            "data_mean": -2.8236952794487813,
+            "data_std": 1.362245033459619
+        }
+    },
+    "fr_para_hydroxylation": {
+        "normalization_type": "continuous",
+        "normalization_name": "gibrat",
+        "params": [
+            -0.00874073035192809,
+            0.023988673379858362
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 7,
+            "data_mean": 0.2581980738651706,
+            "data_std": 0.5588920168597382
+        }
+    },
+    "HeavyAtomMolWt": {
+        "normalization_type": "continuous",
+        "normalization_name": "burr",
+        "params": [
+            6.148243331396738,
+            0.9539656352826273,
+            -2.0597306351675164,
+            373.86535994513247
+        ],
+        "data_stats": {
+            "data_min": 6.941,
+            "data_max": 7542.798000000015,
+            "data_mean": 389.1014159096795,
+            "data_std": 184.23918925686846
+        }
+    },
+    "SlogP_VSA12": {
+        "normalization_type": "continuous",
+        "normalization_name": "lomax",
+        "params": [
+            1.3526140858007119,
+            -3.8436281815982077e-13,
+            0.5306720480047502
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 199.36606648479187,
+            "data_mean": 6.222469001946574,
+            "data_std": 9.773336061271038
+        }
+    },
+    "fr_allylic_oxid": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.012125985576272109,
+            0.04021754130884261
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 12,
+            "data_mean": 0.07526526856879981,
+            "data_std": 0.43369194377652315
+        }
+    },
+    "fr_alkyl_carbamate": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.0028043421468934076,
+            0.009276348457582401
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 3,
+            "data_mean": 0.018071264988549197,
+            "data_std": 0.13836470784532925
+        }
+    },
+    "fr_HOCCN": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.0019826051357043533,
+            0.006555328648504729
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 2,
+            "data_mean": 0.01286090026301841,
+            "data_std": 0.11373440248499654
+        }
+    },
+    "Chi1n": {
+        "normalization_type": "continuous",
+        "normalization_name": "mielke",
+        "params": [
+            4.960260518842145,
+            5.594233665274178,
+            -0.0629921400622475,
+            9.415745103559818
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 179.81742433151658,
+            "data_mean": 9.668289027429788,
+            "data_std": 4.636496265706159
+        }
+    },
+    "PEOE_VSA4": {
+        "normalization_type": "continuous",
+        "normalization_name": "pareto",
+        "params": [
+            1.764490302170505,
+            -1.0130190528730951,
+            1.0130190526084408
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 74.63705581047195,
+            "data_mean": 2.871044297114316,
+            "data_std": 5.252580084878072
+        }
+    },
+    "NOCount": {
+        "normalization_type": "continuous",
+        "normalization_name": "dgamma",
+        "params": [
+            0.9114891050741081,
+            5.999999999999998,
+            2.360844051557576
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 237,
+            "data_mean": 6.576580360625244,
+            "data_std": 5.165410541429347
+        }
+    },
+    "EState_VSA4": {
+        "normalization_type": "continuous",
+        "normalization_name": "foldnorm",
+        "params": [
+            0.005911506485819916,
+            -9.396020384268004e-10,
+            29.86848626045161
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 309.6802047001077,
+            "data_mean": 23.73312663187225,
+            "data_std": 18.134786070135654
+        }
+    },
+    "VSA_EState6": {
+        "normalization_type": "continuous",
+        "normalization_name": "betaprime",
+        "params": [
+            0.12979362790686721,
+            2.0084510281921832,
+            -1.7874327445880742e-34,
+            0.4022005514286884
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 0.0,
+            "data_mean": 0.0,
+            "data_std": 0.0
+        }
+    },
+    "Chi3n": {
+        "normalization_type": "continuous",
+        "normalization_name": "mielke",
+        "params": [
+            3.8419002158163336,
+            5.021067627998188,
+            -0.12843494993055915,
+            5.26846058565802
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 89.41912553532535,
+            "data_mean": 5.1024891606395135,
+            "data_std": 2.6233324773423217
+        }
+    },
+    "fr_barbitur": {
+        "normalization_type": "continuous",
+        "normalization_name": "genhalflogistic",
+        "params": [
+            0.0020825723750872178,
+            -0.0014169372235491489,
+            0.005286684885304822
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 2,
+            "data_mean": 0.0014100987069094837,
+            "data_std": 0.03805408163051986
+        }
+    },
+    "fr_Al_OH_noTert": {
+        "normalization_type": "continuous",
+        "normalization_name": "gompertz",
+        "params": [
+            35118115.876645096,
+            -1.5683266541399722e-10,
+            5712177.117752606
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 37,
+            "data_mean": 0.16987189103237227,
+            "data_std": 0.5550559671673745
+        }
+    },
+    "fr_COO2": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.012755896711276589,
+            0.04241946965978133
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 9,
+            "data_mean": 0.07634534417409218,
+            "data_std": 0.3067871977652909
+        }
+    },
+    "fr_azo": {
+        "normalization_type": "continuous",
+        "normalization_name": "genhalflogistic",
+        "params": [
+            0.00040002675029834824,
+            -2.796838513658869e-05,
+            0.0031033294350019196
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 2,
+            "data_mean": 0.0006700469032832298,
+            "data_std": 0.027011148452530685
+        }
+    },
+    "FpDensityMorgan1": {
+        "normalization_type": "continuous",
+        "normalization_name": "t",
+        "params": [
+            7.1357369753127795,
+            1.0971430458813116,
+            0.17213544486837606
+        ],
+        "data_stats": {
+            "data_min": 0.07971014492753623,
+            "data_max": 2.111111111111111,
+            "data_mean": 1.0947677251482226,
+            "data_std": 0.20201147073315795
+        }
+    },
+    "fr_aniline": {
+        "normalization_type": "continuous",
+        "normalization_name": "halfgennorm",
+        "params": [
+            0.1049174054668825,
+            -0.0004210957634456598,
+            2.0561338188621596e-11
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 17,
+            "data_mean": 0.6701569109837688,
+            "data_std": 0.8999932508248457
+        }
+    },
+    "SMR_VSA3": {
+        "normalization_type": "continuous",
+        "normalization_name": "dgamma",
+        "params": [
+            1.7525536696583415,
+            12.349493875194277,
+            4.09734805299208
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 394.2610115631847,
+            "data_mean": 12.654567199384484,
+            "data_std": 11.238213406272283
+        }
+    },
+    "fr_tetrazole": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.0018040357049599466,
+            0.005964316702018277
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 2,
+            "data_mean": 0.011720820457432021,
+            "data_std": 0.1080900079828228
+        }
+    },
+    "VSA_EState10": {
+        "normalization_type": "continuous",
+        "normalization_name": "gennorm",
+        "params": [
+            0.325862160652744,
+            -1.5857598255070421e-27,
+            0.009249443355545232
+        ],
+        "data_stats": {
+            "data_min": -22.789260764991006,
+            "data_max": 74.77274927572002,
+            "data_mean": 1.3375950132085297,
+            "data_std": 3.8197200206817126
+        }
+    },
+    "fr_phenol_noOrthoHbond": {
+        "normalization_type": "continuous",
+        "normalization_name": "invweibull",
+        "params": [
+            0.8136034301945807,
+            -5.137954972709019e-29,
+            0.01610798208070398
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 8,
+            "data_mean": 0.049623473643155024,
+            "data_std": 0.2514798405151786
+        }
+    },
+    "PEOE_VSA8": {
+        "normalization_type": "continuous",
+        "normalization_name": "dgamma",
+        "params": [
+            1.49159666908677,
+            21.468624511796396,
+            8.385920333308711
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 311.7903524102208,
+            "data_mean": 25.24827589064641,
+            "data_std": 16.37842558375825
+        }
+    },
+    "EState_VSA8": {
+        "normalization_type": "continuous",
+        "normalization_name": "genexpon",
+        "params": [
+            0.8492139229831794,
+            0.898456899940423,
+            1.8794539462657145,
+            -7.998786049300654e-10,
+            28.40401980183114
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 364.8615531780818,
+            "data_mean": 21.03371597445418,
+            "data_std": 18.393077792682497
+        }
+    },
+    "BalabanJ": {
+        "normalization_type": "continuous",
+        "normalization_name": "nct",
+        "params": [
+            4.182658638749994,
+            2.0965263482828114,
+            1.1271767054584343,
+            0.2616489125636474
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 7.289359191119452,
+            "data_mean": 1.8039183288289355,
+            "data_std": 0.47846986656304485
+        }
+    },
+    "fr_C_S": {
+        "normalization_type": "continuous",
+        "normalization_name": "tukeylambda",
+        "params": [
+            1.373229786243365,
+            0.006142154117625993,
+            0.008434588986021351
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 2,
+            "data_mean": 0.017351214585020952,
+            "data_std": 0.13360466287284203
+        }
+    },
+    "fr_ArN": {
+        "normalization_type": "continuous",
+        "normalization_name": "tukeylambda",
+        "params": [
+            1.4424188577152934,
+            0.03329139576768536,
+            0.04802013705497249
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 16,
+            "data_mean": 0.05239366755672897,
+            "data_std": 0.33593599906289534
+        }
+    },
+    "NumAromaticRings": {
+        "normalization_type": "continuous",
+        "normalization_name": "dgamma",
+        "params": [
+            2.5851733541458035,
+            2.495448308226644,
+            0.3726216029742541
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 34,
+            "data_mean": 2.480923664656526,
+            "data_std": 1.2619073213233434
+        }
+    },
+    "fr_Imine": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.004133581140781835,
+            0.013682691065125839
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 4,
+            "data_mean": 0.02636184532917304,
+            "data_std": 0.17166002580284992
+        }
+    },
+    "NumAliphaticCarbocycles": {
+        "normalization_type": "continuous",
+        "normalization_name": "halfgennorm",
+        "params": [
+            0.39096958306392793,
+            -4.260236992450893e-24,
+            0.0012095685496975065
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 9,
+            "data_mean": 0.22409568669806887,
+            "data_std": 0.5847294862795492
+        }
+    },
+    "fr_piperzine": {
+        "normalization_type": "continuous",
+        "normalization_name": "invweibull",
+        "params": [
+            0.7886440189451933,
+            -2.4256731163377907e-29,
+            0.02564081626730841
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 5,
+            "data_mean": 0.08231576210334723,
+            "data_std": 0.28309044391366156
+        }
+    },
+    "fr_nitroso": {
+        "normalization_type": "continuous",
+        "normalization_name": "genhalflogistic",
+        "params": [
+            2.1084981882574176e-07,
+            -4.9280506479729835e-05,
+            0.0027110708397517554
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 2,
+            "data_mean": 0.00014000980068604803,
+            "data_std": 0.012648778519674015
+        }
+    },
+    "FpDensityMorgan2": {
+        "normalization_type": "continuous",
+        "normalization_name": "johnsonsu",
+        "params": [
+            0.7111118816857295,
+            1.7569762969412164,
+            1.9820508520621796,
+            0.3566466873696017
+        ],
+        "data_stats": {
+            "data_min": 0.13043478260869565,
+            "data_max": 2.75,
+            "data_mean": 1.807249299497176,
+            "data_std": 0.26404333001263824
+        }
+    },
+    "SlogP_VSA3": {
+        "normalization_type": "continuous",
+        "normalization_name": "genhalflogistic",
+        "params": [
+            0.00150187910000416,
+            -2.3112405176891454e-10,
+            9.57718508471936
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 486.412075845355,
+            "data_mean": 13.207558092806261,
+            "data_std": 14.07198140237455
+        }
+    },
+    "fr_urea": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.011156011934882477,
+            0.03708223885227959
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 4,
+            "data_mean": 0.06708469592871501,
+            "data_std": 0.2580011979049133
+        }
+    },
+    "VSA_EState9": {
+        "normalization_type": "continuous",
+        "normalization_name": "t",
+        "params": [
+            2.778511535506783,
+            54.00468044177123,
+            14.841602340950482
+        ],
+        "data_stats": {
+            "data_min": -61.35386460040703,
+            "data_max": 1513.3333333333328,
+            "data_mean": 58.298150276013196,
+            "data_std": 32.97223516741629
+        }
+    },
+    "fr_nitro_arom": {
+        "normalization_type": "continuous",
+        "normalization_name": "exponweib",
+        "params": [
+            1.1347393331388103,
+            0.7642415443821742,
+            -9.540668167412522e-31,
+            0.00766605879556546
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 4,
+            "data_mean": 0.03152220655445881,
+            "data_std": 0.18587317845266496
+        }
+    },
+    "fr_amidine": {
+        "normalization_type": "continuous",
+        "normalization_name": "gompertz",
+        "params": [
+            1256395099718.369,
+            -3.6322380930315925e-14,
+            17278550801.355766
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 4,
+            "data_mean": 0.0163211424799736,
+            "data_std": 0.13976768727132605
+        }
+    },
+    "fr_nitro_arom_nonortho": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.002927735757054801,
+            0.009685114750495933
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 3,
+            "data_mean": 0.01884131889232246,
+            "data_std": 0.14002286241970868
+        }
+    },
+    "SlogP_VSA11": {
+        "normalization_type": "continuous",
+        "normalization_name": "invweibull",
+        "params": [
+            0.4147001922244138,
+            -1.4325296088889312e-27,
+            0.4348351110420754
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 68.99414199940686,
+            "data_mean": 3.2168374575889174,
+            "data_std": 5.0279560653331945
+        }
+    },
+    "RingCount": {
+        "normalization_type": "continuous",
+        "normalization_name": "dgamma",
+        "params": [
+            2.186557671264268,
+            3.4836909786085286,
+            0.49776105041563334
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 57,
+            "data_mean": 3.4596821777524425,
+            "data_std": 1.5775840075847496
+        }
+    },
+    "fr_azide": {
+        "normalization_type": "continuous",
+        "normalization_name": "hypsecant",
+        "params": [
+            0.0011100250221481181,
+            0.002817992740312428
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 2,
+            "data_mean": 0.0009900693048513396,
+            "data_std": 0.03238970929040505
+        }
+    },
+    "Ipc": {
+        "normalization_type": "continuous",
+        "normalization_name": "ncf",
+        "params": [
+            2.2307091334463722,
+            0.10899090116091759,
+            1.0000000000366653,
+            -1.1981582241278056e+221,
+            0.5596425180505273
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 9.476131257211451e+221,
+            "data_mean": 1.0245870093128289e+217,
+            "data_std": Infinity
+        }
+    },
+    "fr_benzene": {
+        "normalization_type": "continuous",
+        "normalization_name": "dgamma",
+        "params": [
+            3.3192814002631734,
+            1.5061477493525466,
+            0.23910537147076447
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 14,
+            "data_mean": 1.5344274099186943,
+            "data_std": 0.9561701389956593
+        }
+    },
+    "fr_thiocyan": {
+        "normalization_type": "continuous",
+        "normalization_name": "gengamma",
+        "params": [
+            0.5076950581215369,
+            1.2254477892001665,
+            -1.4543304035389683e-31,
+            0.00801926074913513
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 2,
+            "data_mean": 0.0002900203014210995,
+            "data_std": 0.017605044440269665
+        }
+    },
+    "PEOE_VSA14": {
+        "normalization_type": "continuous",
+        "normalization_name": "pareto",
+        "params": [
+            1.7596722287597166,
+            -2.239860392602096,
+            2.239860392451776
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 416.4980987917504,
+            "data_mean": 3.013749589704376,
+            "data_std": 6.883189641607028
+        }
+    },
+    "PEOE_VSA7": {
+        "normalization_type": "continuous",
+        "normalization_name": "dgamma",
+        "params": [
+            1.4806417259357412,
+            39.98160154845938,
+            10.168406696469939
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 508.39601533563194,
+            "data_mean": 41.78662552891026,
+            "data_std": 19.81428403790816
+        }
+    },
+    "VSA_EState5": {
+        "normalization_type": "continuous",
+        "normalization_name": "genhalflogistic",
+        "params": [
+            4.73389199695264e-09,
+            -0.030429032584450635,
+            0.09155583517487542
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 68.19071853741498,
+            "data_mean": 0.008147278492018148,
+            "data_std": 0.5030871156371451
+        }
+    },
+    "EState_VSA7": {
+        "normalization_type": "continuous",
+        "normalization_name": "powerlaw",
+        "params": [
+            0.2103250937511124,
+            -1.031145487494383e-26,
+            231.78083977397324
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 225.3129516643085,
+            "data_mean": 25.741886434607192,
+            "data_std": 21.953593999938157
+        }
+    },
+    "fr_N_O": {
+        "normalization_type": "continuous",
+        "normalization_name": "exponnorm",
+        "params": [
+            5045.039118637744,
+            -2.4181865220268798e-05,
+            5.7188007391269775e-06
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 6,
+            "data_mean": 0.028882021741521907,
+            "data_std": 0.23864172665999558
+        }
+    },
+    "VSA_EState4": {
+        "normalization_type": "continuous",
+        "normalization_name": "betaprime",
+        "params": [
+            0.12979362790686721,
+            2.0084510281921832,
+            -1.7874327445880742e-34,
+            0.4022005514286884
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 0.0,
+            "data_mean": 0.0,
+            "data_std": 0.0
+        }
+    },
+    "EState_VSA6": {
+        "normalization_type": "continuous",
+        "normalization_name": "chi",
+        "params": [
+            0.5386485681683548,
+            -2.640567062882436e-29,
+            30.844792175705116
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 298.3055333422921,
+            "data_mean": 18.147758868775043,
+            "data_std": 16.4171251936251
+        }
+    },
+    "PEOE_VSA6": {
+        "normalization_type": "continuous",
+        "normalization_name": "exponpow",
+        "params": [
+            0.9016211226446249,
+            -5.748343789415991e-27,
+            53.824180129747546
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 415.6833365808712,
+            "data_mean": 30.51404957069927,
+            "data_std": 23.580292452344
+        }
+    },
+    "fr_diazo": {
+        "normalization_type": "continuous",
+        "normalization_name": "halfnorm",
+        "params": [
+            -8.299739916759084e-10,
+            0.0031623214263548586
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 1,
+            "data_mean": 1.000070004900343e-05,
+            "data_std": 0.0031623725326093326
+        }
+    },
+    "MaxEStateIndex": {
+        "normalization_type": "continuous",
+        "normalization_name": "t",
+        "params": [
+            1.3108542430395254,
+            12.753521906487567,
+            0.7106673064513349
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 18.093289294329608,
+            "data_mean": 12.009719840202806,
+            "data_std": 2.3499823939671187
+        }
+    },
+    "fr_oxime": {
+        "normalization_type": "continuous",
+        "normalization_name": "pearson3",
+        "params": [
+            2.517850854435552,
+            0.009251874821651483,
+            0.011647420462412978
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 3,
+            "data_mean": 0.015401078075465282,
+            "data_std": 0.1267436305065821
+        }
+    },
+    "SlogP_VSA10": {
+        "normalization_type": "continuous",
+        "normalization_name": "betaprime",
+        "params": [
+            0.4375490925573042,
+            1.8760340999346696,
+            -1.050475196211794e-28,
+            1.367988164331459
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 99.49189265982736,
+            "data_mean": 6.345391750680324,
+            "data_std": 7.373907457789322
+        }
+    },
+    "fr_nitrile": {
+        "normalization_type": "continuous",
+        "normalization_name": "invweibull",
+        "params": [
+            0.813385754265167,
+            -2.609225753111669e-30,
+            0.010587145126146093
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 5,
+            "data_mean": 0.04477313411938836,
+            "data_std": 0.2211084100854278
+        }
+    },
+    "fr_COO": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.01274707189437067,
+            0.04238860957269042
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 9,
+            "data_mean": 0.07629534067384718,
+            "data_std": 0.306587684326303
+        }
+    },
+    "VSA_EState8": {
+        "normalization_type": "continuous",
+        "normalization_name": "cauchy",
+        "params": [
+            0.4615208647039756,
+            1.4176964379023667
+        ],
+        "data_stats": {
+            "data_min": -4.311579244789392,
+            "data_max": 610.9052623831149,
+            "data_mean": 9.971522100585924,
+            "data_std": 18.488170207714543
+        }
+    },
+    "SlogP_VSA2": {
+        "normalization_type": "continuous",
+        "normalization_name": "lognorm",
+        "params": [
+            0.5117956692971417,
+            -7.272585382702083,
+            42.859086084122595
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 1181.0895715112954,
+            "data_mean": 41.959432071647804,
+            "data_std": 34.15538345697471
+        }
+    },
+    "fr_priamide": {
+        "normalization_type": "continuous",
+        "normalization_name": "exponweib",
+        "params": [
+            1.0954611988211496,
+            0.7544974723445165,
+            -8.879663989913682e-32,
+            0.012058631113746431
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 6,
+            "data_mean": 0.03770263918474293,
+            "data_std": 0.21274815822293996
+        }
+    },
+    "SMR_VSA1": {
+        "normalization_type": "continuous",
+        "normalization_name": "cauchy",
+        "params": [
+            13.199049915613251,
+            5.44099244703784
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 611.7284512306612,
+            "data_mean": 15.881198059745422,
+            "data_std": 15.324918915564249
+        }
+    },
+    "FpDensityMorgan3": {
+        "normalization_type": "continuous",
+        "normalization_name": "johnsonsu",
+        "params": [
+            1.054397168130864,
+            1.7348730697701296,
+            2.7630213444641853,
+            0.3798207348262541
+        ],
+        "data_stats": {
+            "data_min": 0.18115942028985507,
+            "data_max": 3.5454545454545454,
+            "data_mean": 2.4726320476023513,
+            "data_std": 0.32057971250733736
+        }
+    },
+    "fr_bicyclic": {
+        "normalization_type": "continuous",
+        "normalization_name": "beta",
+        "params": [
+            0.5840060328350145,
+            474.4004348752039,
+            -2.2007759769553093e-31,
+            286.9088171814874
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 31,
+            "data_mean": 0.7892552478673507,
+            "data_std": 1.2222619740000107
+        }
+    },
+    "TPSA": {
+        "normalization_type": "continuous",
+        "normalization_name": "johnsonsu",
+        "params": [
+            -0.8579013079024209,
+            1.232465212393282,
+            51.250072658107214,
+            29.00917664083923
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 3183.790000000002,
+            "data_mean": 83.57268198773914,
+            "data_std": 74.84752227939705
+        }
+    },
+    "NumHeteroatoms": {
+        "normalization_type": "continuous",
+        "normalization_name": "genlogistic",
+        "params": [
+            22.144409538152043,
+            -1.4241236643022548,
+            2.462142139013319
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 259,
+            "data_mean": 7.61976338343684,
+            "data_std": 5.484367394332425
+        }
+    },
+    "fr_pyridine": {
+        "normalization_type": "continuous",
+        "normalization_name": "gibrat",
+        "params": [
+            -0.006105798295798184,
+            0.016715004503743934
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 5,
+            "data_mean": 0.22085545988219174,
+            "data_std": 0.48191548762954484
+        }
+    },
+    "MinEStateIndex": {
+        "normalization_type": "continuous",
+        "normalization_name": "cauchy",
+        "params": [
+            -0.4065559618468691,
+            0.4370714902017909
+        ],
+        "data_stats": {
+            "data_min": -9.858201857916416,
+            "data_max": 1.4242592592592593,
+            "data_mean": -1.1147863044659592,
+            "data_std": 1.550385821215674
+        }
+    },
+    "NumHDonors": {
+        "normalization_type": "continuous",
+        "normalization_name": "johnsonsu",
+        "params": [
+            -6.303785805420036,
+            1.2935688877340756,
+            -0.44063513396543863,
+            0.023159008664878106
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 104,
+            "data_mean": 1.6016621163481444,
+            "data_std": 2.2472252977995697
+        }
+    },
+    "NumValenceElectrons": {
+        "normalization_type": "continuous",
+        "normalization_name": "t",
+        "params": [
+            2.854251470602213,
+            144.3027466924646,
+            32.00913472185999
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 2996,
+            "data_mean": 153.57779044533117,
+            "data_std": 75.10240753520117
+        }
+    },
+    "Chi0": {
+        "normalization_type": "continuous",
+        "normalization_name": "fisk",
+        "params": [
+            5.941141785557418,
+            -0.07374276109511947,
+            19.65464437888598
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 405.82501416452726,
+            "data_mean": 20.82806399367901,
+            "data_std": 9.928368342000695
+        }
+    },
+    "Kappa2": {
+        "normalization_type": "continuous",
+        "normalization_name": "fisk",
+        "params": [
+            4.668432120081604,
+            0.2539009602536103,
+            7.822349728630153
+        ],
+        "data_stats": {
+            "data_min": 0.2713156408808583,
+            "data_max": 225.9686552554005,
+            "data_mean": 8.912276904621457,
+            "data_std": 5.461845335100644
+        }
+    },
+    "NHOHCount": {
+        "normalization_type": "continuous",
+        "normalization_name": "invgamma",
+        "params": [
+            3.8797587021158746,
+            -1.1307664222598288,
+            8.227943634490117
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 117,
+            "data_mean": 1.7429120038402688,
+            "data_std": 2.563177769965799
+        }
+    },
+    "SMR_VSA10": {
+        "normalization_type": "continuous",
+        "normalization_name": "dweibull",
+        "params": [
+            1.1539393051818632,
+            20.846729374180775,
+            11.835976638334323
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 491.00242136254764,
+            "data_mean": 23.906689304667765,
+            "data_std": 16.4741302013246
+        }
+    },
+    "PEOE_VSA12": {
+        "normalization_type": "continuous",
+        "normalization_name": "alpha",
+        "params": [
+            0.5429249279739217,
+            -1.1871493007688236,
+            2.145045390430375
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 419.4097607839573,
+            "data_mean": 5.59007921551618,
+            "data_std": 9.564823801075985
+        }
+    },
+    "PEOE_VSA1": {
+        "normalization_type": "continuous",
+        "normalization_name": "burr",
+        "params": [
+            3.9268049096073985,
+            0.48995232102675695,
+            -1.6407085406832138,
+            19.294424729301284
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 561.0838284951058,
+            "data_mean": 14.999241834817811,
+            "data_std": 13.776374483985686
+        }
+    },
+    "fr_ether": {
+        "normalization_type": "continuous",
+        "normalization_name": "fisk",
+        "params": [
+            0.8051168725131534,
+            -2.567380610408963e-22,
+            0.23753230483392967
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 60,
+            "data_mean": 0.8167371716020121,
+            "data_std": 1.2247008120931449
+        }
+    },
+    "EState_VSA1": {
+        "normalization_type": "continuous",
+        "normalization_name": "foldcauchy",
+        "params": [
+            0.0067487067434300755,
+            -2.744934012978528e-09,
+            4.288215504541297
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 1261.848165001823,
+            "data_mean": 12.539067008486557,
+            "data_std": 28.935889287596773
+        }
+    },
+    "VSA_EState3": {
+        "normalization_type": "continuous",
+        "normalization_name": "betaprime",
+        "params": [
+            0.12979362790686721,
+            2.0084510281921832,
+            -1.7874327445880742e-34,
+            0.4022005514286884
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 0.0,
+            "data_mean": 0.0,
+            "data_std": 0.0
+        }
+    },
+    "SlogP_VSA9": {
+        "normalization_type": "continuous",
+        "normalization_name": "betaprime",
+        "params": [
+            0.12979362790686721,
+            2.0084510281921832,
+            -1.7874327445880742e-34,
+            0.4022005514286884
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 0.0,
+            "data_mean": 0.0,
+            "data_std": 0.0
+        }
+    },
+    "MaxPartialCharge": {
+        "normalization_type": "continuous",
+        "normalization_name": "dgamma",
+        "params": [
+            0.8966427125022032,
+            0.26138963441733876,
+            0.06744166351965852
+        ],
+        "data_stats": {
+            "data_min": -0.03856361615904991,
+            "data_max": 3.0,
+            "data_mean": 0.27854710402529237,
+            "data_std": 0.08364524848258846
+        }
+    },
+    "BertzCT": {
+        "normalization_type": "continuous",
+        "normalization_name": "beta",
+        "params": [
+            18.188950676898635,
+            6538386706999.18,
+            -671.968519633414,
+            592927086280210.0
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 30826.22636467273,
+            "data_mean": 987.5790655792254,
+            "data_std": 632.1534060688446
+        }
+    },
+    "fr_isocyan": {
+        "normalization_type": "continuous",
+        "normalization_name": "genhalflogistic",
+        "params": [
+            2.176451524678801e-10,
+            -8.586837508181029e-13,
+            0.003318792604734705
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 1,
+            "data_mean": 0.00011000770053903773,
+            "data_std": 0.010487878662763976
+        }
+    },
+    "fr_phos_ester": {
+        "normalization_type": "continuous",
+        "normalization_name": "genhalflogistic",
+        "params": [
+            3.2594653253264924e-11,
+            -0.0012483281868383108,
+            0.02952659923331233
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 22,
+            "data_mean": 0.007020491434400408,
+            "data_std": 0.3369253069398357
+        }
+    },
+    "fr_Nhpyrrole": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.01991313112984635,
+            0.06651081784403544
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 13,
+            "data_mean": 0.11327792945506185,
+            "data_std": 0.3729728496055485
+        }
+    },
+    "RDKit2D_calculated": {
+        "normalization_type": "continuous",
+        "normalization_name": "betaprime",
+        "params": [
+            0.3413091898181908,
+            238.4251067091114,
+            0.9999999999999999,
+            0.8834384815227141
+        ],
+        "data_stats": {
+            "data_min": true,
+            "data_max": true,
+            "data_mean": 1.0,
+            "data_std": 0.0
+        }
+    },
+    "fr_sulfone": {
+        "normalization_type": "continuous",
+        "normalization_name": "pearson3",
+        "params": [
+            2.196096781694557,
+            0.009513879681788937,
+            0.01044670027530296
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 3,
+            "data_mean": 0.021361495304671328,
+            "data_std": 0.14807178403739918
+        }
+    },
+    "MinAbsPartialCharge": {
+        "normalization_type": "continuous",
+        "normalization_name": "laplace",
+        "params": [
+            0.26315857867884,
+            0.0561294628943012
+        ],
+        "data_stats": {
+            "data_min": 0.00017822665335796042,
+            "data_max": 1.0,
+            "data_mean": 0.2739606546909672,
+            "data_std": 0.07533771658554175
+        }
+    },
+    "SMR_VSA6": {
+        "normalization_type": "continuous",
+        "normalization_name": "recipinvgauss",
+        "params": [
+            0.5082650634594839,
+            -6.086954132180281,
+            8.524443845355009
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 817.1820035633156,
+            "data_mean": 19.209113622421707,
+            "data_std": 17.41580422042883
+        }
+    },
+    "fr_thiophene": {
+        "normalization_type": "continuous",
+        "normalization_name": "halfgennorm",
+        "params": [
+            0.5766089104240131,
+            -6.723634040192055e-19,
+            0.0018219011330323374
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 3,
+            "data_mean": 0.050743552048643406,
+            "data_std": 0.22669113213778155
+        }
+    },
+    "EState_VSA11": {
+        "normalization_type": "continuous",
+        "normalization_name": "genhalflogistic",
+        "params": [
+            0.0010872264517366357,
+            -4.398093849911524e-07,
+            0.31899977022818193
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 163.01426425844207,
+            "data_mean": 0.11426916104059913,
+            "data_std": 1.8841357303463615
+        }
+    },
+    "fr_NH0": {
+        "normalization_type": "continuous",
+        "normalization_name": "foldnorm",
+        "params": [
+            0.05865369911318355,
+            -2.4259159741023723e-09,
+            2.811848848966825
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 59,
+            "data_mean": 2.174432210254718,
+            "data_std": 1.785860796591467
+        }
+    },
+    "SlogP_VSA5": {
+        "normalization_type": "continuous",
+        "normalization_name": "genexpon",
+        "params": [
+            0.002852587331303075,
+            0.23353705964951516,
+            0.2144337777778184,
+            -2.3573191470339223,
+            4.447211770059805
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 649.935656436369,
+            "data_mean": 30.740541351785637,
+            "data_std": 23.895007786195226
+        }
+    },
+    "EState_VSA10": {
+        "normalization_type": "continuous",
+        "normalization_name": "genexpon",
+        "params": [
+            2.705707701965304,
+            3.771883657629245,
+            5.375903761907104,
+            -4.354556984551863e-07,
+            54.16500289129278
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 322.991248574887,
+            "data_mean": 11.740129013811245,
+            "data_std": 11.161898269805397
+        }
+    },
+    "fr_NH1": {
+        "normalization_type": "continuous",
+        "normalization_name": "exponnorm",
+        "params": [
+            2892.636726669909,
+            -0.0012981492832112645,
+            0.00037957863319105643
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 70,
+            "data_mean": 1.1072875101257087,
+            "data_std": 1.5590446880501752
+        }
+    },
+    "SlogP_VSA4": {
+        "normalization_type": "continuous",
+        "normalization_name": "halfgennorm",
+        "params": [
+            0.13290288528045635,
+            -2.16370553583873e-12,
+            4.03300081749346e-08
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 116.32363116174835,
+            "data_mean": 6.358583799897668,
+            "data_std": 7.800100182361395
+        }
+    },
+    "fr_Ndealkylation2": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.031069214119069204,
+            0.10443777001623708
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 12,
+            "data_mean": 0.16626163831468202,
+            "data_std": 0.4316735416648144
+        }
+    },
+    "SMR_VSA7": {
+        "normalization_type": "continuous",
+        "normalization_name": "dweibull",
+        "params": [
+            1.215378550488066,
+            56.28465156519039,
+            23.02916244099079
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 551.7863436604832,
+            "data_mean": 58.73997506473642,
+            "data_std": 28.427064508331743
+        }
+    },
+    "fr_nitro": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.006030983799621385,
+            0.019984499845659677
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 4,
+            "data_mean": 0.03786265038552699,
+            "data_std": 0.20368952922550065
+        }
+    },
+    "SlogP_VSA8": {
+        "normalization_type": "continuous",
+        "normalization_name": "ncf",
+        "params": [
+            0.010351345715274272,
+            2.238220060195106,
+            2.3979254167173853,
+            -2.0305306869043397e-08,
+            0.00093545475888877
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 133.9023781814824,
+            "data_mean": 6.766619840611257,
+            "data_std": 8.671848120645365
+        }
+    },
+    "VSA_EState2": {
+        "normalization_type": "continuous",
+        "normalization_name": "genlogistic",
+        "params": [
+            1.415613774458108,
+            -4.0305012625995696e-05,
+            0.001088572076970272
+        ],
+        "data_stats": {
+            "data_min": -0.7726899469689867,
+            "data_max": 0.0802671757431348,
+            "data_mean": -3.2739988469591856e-05,
+            "data_std": 0.004083178209614408
+        }
+    },
+    "NumAromaticCarbocycles": {
+        "normalization_type": "continuous",
+        "normalization_name": "dgamma",
+        "params": [
+            3.319688925350106,
+            1.5062285243564748,
+            0.23908502549666388
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 14,
+            "data_mean": 1.5350374526216835,
+            "data_std": 0.956147979224174
+        }
+    },
+    "fr_furan": {
+        "normalization_type": "continuous",
+        "normalization_name": "halfgennorm",
+        "params": [
+            0.5939855958815875,
+            -5.726016095250532e-19,
+            0.001778526530384881
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 2,
+            "data_mean": 0.038802716190133306,
+            "data_std": 0.19747704781754222
+        }
+    },
+    "PEOE_VSA13": {
+        "normalization_type": "continuous",
+        "normalization_name": "halfgennorm",
+        "params": [
+            0.2726011593040699,
+            -6.070628359122943e-24,
+            0.0023718323492315794
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 78.17764936502758,
+            "data_mean": 3.30010114873348,
+            "data_std": 4.358778167233281
+        }
+    },
+    "fr_oxazole": {
+        "normalization_type": "continuous",
+        "normalization_name": "wald",
+        "params": [
+            -0.0018806042805029088,
+            0.006217750403694874
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 2,
+            "data_mean": 0.012210854759833188,
+            "data_std": 0.11073284872542345
+        }
+    },
+    "Kappa3": {
+        "normalization_type": "continuous",
+        "normalization_name": "foldnorm",
+        "params": [
+            0.7381901404044835,
+            0.07499999952842873,
+            4.410636124980368
+        ],
+        "data_stats": {
+            "data_min": 0.07500000000000012,
+            "data_max": 1760.9964197530858,
+            "data_mean": 4.873556896466643,
+            "data_std": 6.732045653350472
+        }
+    },
+    "fr_morpholine": {
+        "normalization_type": "continuous",
+        "normalization_name": "exponweib",
+        "params": [
+            1.5683748664994073,
+            0.5053553495208175,
+            -2.1400950538163005e-30,
+            0.0033466480252323464
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 3,
+            "data_mean": 0.046923284629924095,
+            "data_std": 0.21977656974074022
+        }
+    },
+    "fr_unbrch_alkane": {
+        "normalization_type": "continuous",
+        "normalization_name": "genhalflogistic",
+        "params": [
+            0.0001735874860695949,
+            -2.406745376333286e-08,
+            0.2558409046054385
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 167,
+            "data_mean": 0.2555878911523807,
+            "data_std": 1.8216755193439447
+        }
+    },
+    "fr_amide": {
+        "normalization_type": "continuous",
+        "normalization_name": "recipinvgauss",
+        "params": [
+            220103.5665089948,
+            -1.4778017808899836e-11,
+            0.7451439305459917
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 71,
+            "data_mean": 1.1422999609972697,
+            "data_std": 1.6398141260141192
+        }
+    },
+    "NumRotatableBonds": {
+        "normalization_type": "continuous",
+        "normalization_name": "mielke",
+        "params": [
+            2.902960148717509,
+            4.199193993037961,
+            -0.9968227721720102,
+            8.267126836374882
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 304,
+            "data_mean": 7.140309821687518,
+            "data_std": 6.233943765856294
+        }
+    },
+    "Chi1": {
+        "normalization_type": "continuous",
+        "normalization_name": "mielke",
+        "params": [
+            5.372526418714403,
+            6.068367649928466,
+            -0.06790886881111757,
+            13.725737593680664
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 256.9697300670324,
+            "data_mean": 14.033526281218712,
+            "data_std": 6.54332057037178
+        }
+    },
+    "fr_phos_acid": {
+        "normalization_type": "continuous",
+        "normalization_name": "genhalflogistic",
+        "params": [
+            3.2594653253264924e-11,
+            -0.0012483281868383108,
+            0.02952659923331233
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 22,
+            "data_mean": 0.007130499134939446,
+            "data_std": 0.3375013082055841
+        }
+    },
+    "fr_piperdine": {
+        "normalization_type": "continuous",
+        "normalization_name": "halfgennorm",
+        "params": [
+            0.4238794287379706,
+            -1.2796542653568352e-22,
+            0.0018770831152461857
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 6,
+            "data_mean": 0.14572020041402897,
+            "data_std": 0.39164760531240855
+        }
+    },
+    "fr_isothiocyan": {
+        "normalization_type": "continuous",
+        "normalization_name": "genhalflogistic",
+        "params": [
+            8.886662035991823e-09,
+            -0.0008924947259535538,
+            0.002685293974604489
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 2,
+            "data_mean": 0.0002300161011270789,
+            "data_std": 0.015810268619422887
+        }
+    },
+    "MinAbsEStateIndex": {
+        "normalization_type": "continuous",
+        "normalization_name": "genpareto",
+        "params": [
+            0.11654274500988507,
+            -4.295406365103898e-11,
+            0.13245709790535898
+        ],
+        "data_stats": {
+            "data_min": 0.0,
+            "data_max": 2.5115740740740735,
+            "data_mean": 0.15016751055787822,
+            "data_std": 0.17292082606243664
+        }
+    },
+    "fr_methoxy": {
+        "normalization_type": "continuous",
+        "normalization_name": "gibrat",
+        "params": [
+            -0.01550907507397075,
+            0.042866902160229356
+        ],
+        "data_stats": {
+            "data_min": 0,
+            "data_max": 8,
+            "data_mean": 0.31338193673557146,
+            "data_std": 0.6523713877037112
+        }
+    }
+}
