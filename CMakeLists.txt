@@ -105,10 +105,12 @@ target_link_libraries(cuik_molmaker_core PUBLIC
     ${TORCH_PYTHON_LIBRARY}
     ${Boost_LIBRARIES}
 )
+if (NOT CUIKMOLMAKER_BUILD_TESTS)
 set_target_properties(cuik_molmaker_core PROPERTIES
-    INSTALL_RPATH "$ORIGIN/../../../.."
-    BUILD_WITH_INSTALL_RPATH TRUE
-)
+        INSTALL_RPATH "$ORIGIN/../../../.."
+        BUILD_WITH_INSTALL_RPATH TRUE
+    )
+endif()
 # Create the Python module using the core library
 pybind11_add_module(cuik_molmaker_cpp
     src/cuik_molmaker_cpp.cpp
@@ -120,10 +122,12 @@ target_link_libraries(cuik_molmaker_cpp PRIVATE
 )
 
 # Set RPATH for the Python module
-set_target_properties(cuik_molmaker_cpp PROPERTIES
-    INSTALL_RPATH "\$ORIGIN/../../..:\$ORIGIN/lib"
-    BUILD_WITH_INSTALL_RPATH TRUE
-)
+if (NOT CUIKMOLMAKER_BUILD_TESTS)
+    set_target_properties(cuik_molmaker_cpp PROPERTIES
+        INSTALL_RPATH "\$ORIGIN/../../..:\$ORIGIN/lib"
+        BUILD_WITH_INSTALL_RPATH TRUE
+    )
+endif()
 
 # Set installation targets
 install(TARGETS cuik_molmaker_cpp

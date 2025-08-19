@@ -6,12 +6,10 @@
 
 #pragma once
 
-#include "features.h"
-
 #include <GraphMol/ROMol.h>
-
 #include <stdint.h>
 
+#include "features.h"
 
 //! Returns the number of values per atom, required by `feature` in `get_one_hot_atom_feature`'s
 //! `data` argument.  Implementation is in one_hot.cpp
@@ -34,14 +32,23 @@ size_t get_one_hot_atom_feature_size(AtomOneHotFeature feature);
 //! @return The number of values per atom, i.e. `get_one_hot_atom_feature_size(feature)`
 //! @see AtomOneHotFeature
 //! @see get_one_hot_atom_feature_size
-template<typename T>
+template <typename T>
 size_t get_one_hot_atom_feature(const GraphData& graph, T* data, AtomOneHotFeature feature, size_t stride);
 
 // Instantiation declarations of `get_one_hot_atom_feature` for `int16_t` (FP16),
 // `float` (FP32), and `double` (FP64). The explicit instantiations are in one_hot.cpp
-extern template size_t get_one_hot_atom_feature<int16_t>(const GraphData& graph, int16_t* data, AtomOneHotFeature feature, size_t stride);
-extern template size_t get_one_hot_atom_feature<float>(const GraphData& graph, float* data, AtomOneHotFeature feature, size_t stride);
-extern template size_t get_one_hot_atom_feature<double>(const GraphData& graph, double* data, AtomOneHotFeature feature, size_t stride);
+extern template size_t get_one_hot_atom_feature<int16_t>(const GraphData&  graph,
+                                                         int16_t*          data,
+                                                         AtomOneHotFeature feature,
+                                                         size_t            stride);
+extern template size_t get_one_hot_atom_feature<float>(const GraphData&  graph,
+                                                       float*            data,
+                                                       AtomOneHotFeature feature,
+                                                       size_t            stride);
+extern template size_t get_one_hot_atom_feature<double>(const GraphData&  graph,
+                                                        double*           data,
+                                                        AtomOneHotFeature feature,
+                                                        size_t            stride);
 
 //! Returns the number of values required by `feature` in `get_one_hot_bond_feature`'s
 //! `data` argument.  Implementation is in one_hot.cpp
@@ -64,12 +71,20 @@ size_t get_one_hot_bond_feature_size(BondFeature feature);
 //! @return The number of values per bond, i.e. `get_one_hot_bond_feature_size(feature)`
 //! @see BondFeature
 //! @see get_one_hot_bond_feature_size
-template<typename T>
+template <typename T>
 size_t get_one_hot_bond_feature(const GraphData& graph, T* data, BondFeature feature, size_t stride);
 
 // Instantiation declarations of `get_one_hot_bond_feature` for `int16_t` (FP16),
 // `float` (FP32), and `double` (FP64). The explicit instantiations are in one_hot.cpp
-extern template size_t get_one_hot_bond_feature<int16_t>(const GraphData& graph, int16_t* data, BondFeature feature, size_t stride);
-extern template size_t get_one_hot_bond_feature<float>(const GraphData& graph, float* data, BondFeature feature, size_t stride);
-extern template size_t get_one_hot_bond_feature<double>(const GraphData& graph, double* data, BondFeature feature, size_t stride);
-
+extern template size_t get_one_hot_bond_feature<int16_t>(const GraphData& graph,
+                                                         int16_t*         data,
+                                                         BondFeature      feature,
+                                                         size_t           stride);
+extern template size_t get_one_hot_bond_feature<float>(const GraphData& graph,
+                                                       float*           data,
+                                                       BondFeature      feature,
+                                                       size_t           stride);
+extern template size_t get_one_hot_bond_feature<double>(const GraphData& graph,
+                                                        double*          data,
+                                                        BondFeature      feature,
+                                                        size_t           stride);

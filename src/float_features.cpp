@@ -6,353 +6,385 @@
 
 #include "float_features.h"
 
-#include "features.h"
-
 #include <GraphMol/Atom.h>
 #include <GraphMol/Bond.h>
+#include <GraphMol/DistGeomHelpers/Embedder.h>
 #include <GraphMol/PeriodicTable.h>
 #include <GraphMol/ROMol.h>
-#include <GraphMol/DistGeomHelpers/Embedder.h>
-#include <GraphMol/Substruct/SubstructMatch.h>
 #include <GraphMol/SmilesParse/SmilesParse.h>
+#include <GraphMol/Substruct/SubstructMatch.h>
 #include <RDGeneral/types.h>
-
 #include <stdint.h>
+
 #include <cmath>
 #include <iostream>
+
+#include "features.h"
 
 static constexpr double qNaN = std::numeric_limits<double>::quiet_NaN();
 
 // Fills in a particular atom float `feature` into `data`, for all atoms.
 // See the declaration in float_features.h for more details.
-template<typename T>
-void get_atom_float_feature(const GraphData& graph, T* data, AtomFloatFeature feature, size_t stride, bool offset_carbon) {
-    const uint32_t num_atoms = graph.num_atoms;
-    constexpr uint32_t carbon_atomic_num = 6;
-    using MT = typename FeatureValues<T>::MathType;
-    switch (feature) {
+template <typename T>
+void get_atom_float_feature(const GraphData& graph,
+                            T*               data,
+                            AtomFloatFeature feature,
+                            size_t           stride,
+                            bool             offset_carbon) {
+  const uint32_t     num_atoms         = graph.num_atoms;
+  constexpr uint32_t carbon_atomic_num = 6;
+  using MT                             = typename FeatureValues<T>::MathType;
+  switch (feature) {
     case AtomFloatFeature::ATOMIC_NUMBER: {
-        const MT offset = offset_carbon ? carbon_atomic_num : 0;
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            *data = FeatureValues<T>::convertToFeatureType((MT(graph.atoms[i].atomicNum) - offset) / MT(5));
-            data += stride;
-        }
-        return;
+      const MT offset = offset_carbon ? carbon_atomic_num : 0;
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        *data = FeatureValues<T>::convertToFeatureType((MT(graph.atoms[i].atomicNum) - offset) / MT(5));
+        data += stride;
+      }
+      return;
     }
     case AtomFloatFeature::MASS: {
-        const RDKit::ROMol& mol = *graph.mol.get();
-        constexpr MT carbon_mass = MT(12.011);
-        const MT offset = offset_carbon ? carbon_mass : 0;
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            *data = FeatureValues<T>::convertToFeatureType((MT(mol.getAtomWithIdx(i)->getMass()) - offset) / MT(100));
-            data += stride;
-        }
-        return;
+      const RDKit::ROMol& mol         = *graph.mol.get();
+      constexpr MT        carbon_mass = MT(12.011);
+      const MT            offset      = offset_carbon ? carbon_mass : 0;
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        *data = FeatureValues<T>::convertToFeatureType((MT(mol.getAtomWithIdx(i)->getMass()) - offset) / MT(100));
+        data += stride;
+      }
+      return;
     }
     case AtomFloatFeature::VALENCE: {
-        const RDKit::ROMol& mol = *graph.mol.get();
-        const MT offset = offset_carbon ? 4 : 0;
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            *data = FeatureValues<T>::convertToFeatureType(MT(mol.getAtomWithIdx(i)->getTotalValence()) - offset);
-            data += stride;
-        }
-        return;
+      const RDKit::ROMol& mol    = *graph.mol.get();
+      const MT            offset = offset_carbon ? 4 : 0;
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        *data = FeatureValues<T>::convertToFeatureType(MT(mol.getAtomWithIdx(i)->getTotalValence()) - offset);
+        data += stride;
+      }
+      return;
     }
     case AtomFloatFeature::IMPLICIT_VALENCE: {
-        const RDKit::ROMol& mol = *graph.mol.get();
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            *data = FeatureValues<T>::convertToFeatureType(MT(mol.getAtomWithIdx(i)->getImplicitValence()));
-            data += stride;
-        }
-        return;
+      const RDKit::ROMol& mol = *graph.mol.get();
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        *data = FeatureValues<T>::convertToFeatureType(MT(mol.getAtomWithIdx(i)->getImplicitValence()));
+        data += stride;
+      }
+      return;
     }
     case AtomFloatFeature::HYBRIDIZATION: {
-        const RDKit::ROMol& mol = *graph.mol.get();
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            *data = FeatureValues<T>::convertToFeatureType(MT(mol.getAtomWithIdx(i)->getHybridization()));
-            data += stride;
-        }
-        return;
+      const RDKit::ROMol& mol = *graph.mol.get();
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        *data = FeatureValues<T>::convertToFeatureType(MT(mol.getAtomWithIdx(i)->getHybridization()));
+        data += stride;
+      }
+      return;
     }
     case AtomFloatFeature::CHIRALITY: {
-        const RDKit::ROMol& mol = *graph.mol.get();
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            const RDKit::Atom* atom = mol.getAtomWithIdx(i);
-            std::string prop;
-            bool has_prop = atom->getPropIfPresent(RDKit::common_properties::_CIPCode, prop);
-            *data = FeatureValues<T>::convertToFeatureType(has_prop ? MT(prop.length() == 1 && prop[0] == 'R') : MT(2));
-            data += stride;
-        }
-        return;
+      const RDKit::ROMol& mol = *graph.mol.get();
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        const RDKit::Atom* atom = mol.getAtomWithIdx(i);
+        std::string        prop;
+        bool               has_prop = atom->getPropIfPresent(RDKit::common_properties::_CIPCode, prop);
+        *data = FeatureValues<T>::convertToFeatureType(has_prop ? MT(prop.length() == 1 && prop[0] == 'R') : MT(2));
+        data += stride;
+      }
+      return;
     }
     case AtomFloatFeature::AROMATIC: {
-        const RDKit::ROMol& mol = *graph.mol.get();
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            *data = FeatureValues<T>::convertToFeatureType(MT(mol.getAtomWithIdx(i)->getIsAromatic()));
-            data += stride;
-        }
-        return;
+      const RDKit::ROMol& mol = *graph.mol.get();
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        *data = FeatureValues<T>::convertToFeatureType(MT(mol.getAtomWithIdx(i)->getIsAromatic()));
+        data += stride;
+      }
+      return;
     }
     case AtomFloatFeature::IN_RING: {
-        const RDKit::ROMol& mol = *graph.mol.get();
-        const RDKit::RingInfo* ring_info = mol.getRingInfo();
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            *data = FeatureValues<T>::convertToFeatureType(MT(ring_info->numAtomRings(i) != 0));
-            data += stride;
-        }
-        return;
+      const RDKit::ROMol&    mol       = *graph.mol.get();
+      const RDKit::RingInfo* ring_info = mol.getRingInfo();
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        *data = FeatureValues<T>::convertToFeatureType(MT(ring_info->numAtomRings(i) != 0));
+        data += stride;
+      }
+      return;
     }
     case AtomFloatFeature::MIN_RING: {
-        const RDKit::ROMol& mol = *graph.mol.get();
-        const RDKit::RingInfo* ring_info = mol.getRingInfo();
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            *data = FeatureValues<T>::convertToFeatureType(MT(ring_info->minAtomRingSize(i)));
-            data += stride;
-        }
-        return;
+      const RDKit::ROMol&    mol       = *graph.mol.get();
+      const RDKit::RingInfo* ring_info = mol.getRingInfo();
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        *data = FeatureValues<T>::convertToFeatureType(MT(ring_info->minAtomRingSize(i)));
+        data += stride;
+      }
+      return;
     }
     case AtomFloatFeature::MAX_RING: {
-        const RDKit::ROMol& mol = *graph.mol.get();
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            data[i * stride] = FeatureValues<T>::zero;
+      const RDKit::ROMol& mol = *graph.mol.get();
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        data[i * stride] = FeatureValues<T>::zero;
+      }
+      const RDKit::RingInfo* ring_info = mol.getRingInfo();
+      const auto&            rings     = ring_info->atomRings();
+      for (const auto& ring : rings) {
+        const T size = FeatureValues<T>::convertToFeatureType(MT(ring.size()));
+        for (const auto atom_index : ring) {
+          if (size > data[atom_index * stride]) {
+            data[atom_index * stride] = size;
+          }
         }
-        const RDKit::RingInfo* ring_info = mol.getRingInfo();
-        const auto& rings = ring_info->atomRings();
-        for (const auto& ring : rings) {
-            const T size = FeatureValues<T>::convertToFeatureType(MT(ring.size()));
-            for (const auto atom_index : ring) {
-                if (size > data[atom_index * stride]) {
-                    data[atom_index * stride] = size;
-                }
-            }
-        }
-        return;
+      }
+      return;
     }
     case AtomFloatFeature::NUM_RING: {
-        const RDKit::ROMol& mol = *graph.mol.get();
-        const RDKit::RingInfo* ring_info = mol.getRingInfo();
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            *data = FeatureValues<T>::convertToFeatureType(MT(ring_info->numAtomRings(i)));
-            data += stride;
-        }
-        return;
+      const RDKit::ROMol&    mol       = *graph.mol.get();
+      const RDKit::RingInfo* ring_info = mol.getRingInfo();
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        *data = FeatureValues<T>::convertToFeatureType(MT(ring_info->numAtomRings(i)));
+        data += stride;
+      }
+      return;
     }
     case AtomFloatFeature::DEGREE: {
-        const RDKit::ROMol& mol = *graph.mol.get();
-        const MT offset = offset_carbon ? 2 : 0;
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            *data = FeatureValues<T>::convertToFeatureType(MT(mol.getAtomWithIdx(i)->getTotalDegree()) - offset);
-            data += stride;
-        }
-        return;
+      const RDKit::ROMol& mol    = *graph.mol.get();
+      const MT            offset = offset_carbon ? 2 : 0;
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        *data = FeatureValues<T>::convertToFeatureType(MT(mol.getAtomWithIdx(i)->getTotalDegree()) - offset);
+        data += stride;
+      }
+      return;
     }
     case AtomFloatFeature::RADICAL_ELECTRON: {
-        const RDKit::ROMol& mol = *graph.mol.get();
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            *data = FeatureValues<T>::convertToFeatureType(MT(mol.getAtomWithIdx(i)->getNumRadicalElectrons()));
-            data += stride;
-        }
-        return;
+      const RDKit::ROMol& mol = *graph.mol.get();
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        *data = FeatureValues<T>::convertToFeatureType(MT(mol.getAtomWithIdx(i)->getNumRadicalElectrons()));
+        data += stride;
+      }
+      return;
     }
     case AtomFloatFeature::FORMAL_CHARGE: {
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            *data = FeatureValues<T>::convertToFeatureType(MT(graph.atoms[i].formalCharge));
-            data += stride;
-        }
-        return;
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        *data = FeatureValues<T>::convertToFeatureType(MT(graph.atoms[i].formalCharge));
+        data += stride;
+      }
+      return;
     }
     case AtomFloatFeature::GROUP: {
-        const MT offset = offset_carbon ? MT(atomicNumToGroupTable[carbon_atomic_num - 1]) : MT(0);
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            const uint32_t atomic_num = graph.atoms[i].atomicNum;
-            *data = (atomic_num <= 0 || atomic_num > 118) ? FeatureValues<T>::nan_value : FeatureValues<T>::convertToFeatureType(MT(atomicNumToGroupTable[atomic_num - 1]) - offset);
-            data += stride;
-        }
-        return;
+      const MT offset = offset_carbon ? MT(atomicNumToGroupTable[carbon_atomic_num - 1]) : MT(0);
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        const uint32_t atomic_num = graph.atoms[i].atomicNum;
+        *data                     = (atomic_num <= 0 || atomic_num > 118) ?
+                                      FeatureValues<T>::nan_value :
+                                      FeatureValues<T>::convertToFeatureType(MT(atomicNumToGroupTable[atomic_num - 1]) - offset);
+        data += stride;
+      }
+      return;
     }
     case AtomFloatFeature::PERIOD: {
-        const MT offset = offset_carbon ? MT(atomicNumToPeriodTable[carbon_atomic_num - 1]) : MT(0);
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            const uint32_t atomic_num = graph.atoms[i].atomicNum;
-            *data = (atomic_num <= 0 || atomic_num > 118) ? FeatureValues<T>::nan_value : FeatureValues<T>::convertToFeatureType(MT(atomicNumToPeriodTable[atomic_num - 1]) - offset);
-            data += stride;
-        }
-        return;
+      const MT offset = offset_carbon ? MT(atomicNumToPeriodTable[carbon_atomic_num - 1]) : MT(0);
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        const uint32_t atomic_num = graph.atoms[i].atomicNum;
+        *data                     = (atomic_num <= 0 || atomic_num > 118) ?
+                                      FeatureValues<T>::nan_value :
+                                      FeatureValues<T>::convertToFeatureType(MT(atomicNumToPeriodTable[atomic_num - 1]) - offset);
+        data += stride;
+      }
+      return;
     }
     case AtomFloatFeature::SINGLE_BOND:
     case AtomFloatFeature::AROMATIC_BOND:
     case AtomFloatFeature::DOUBLE_BOND:
-    case AtomFloatFeature::TRIPLE_BOND:
-    {
-        const RDKit::ROMol& mol = *graph.mol.get();
-        const RDKit::Bond::BondType type =
-            (feature == AtomFloatFeature::SINGLE_BOND) ? RDKit::Bond::SINGLE : (
-                (feature == AtomFloatFeature::AROMATIC_BOND) ? RDKit::Bond::AROMATIC : (
-                (feature == AtomFloatFeature::DOUBLE_BOND) ? RDKit::Bond::DOUBLE : (
-                RDKit::Bond::TRIPLE)));
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            auto [begin, end] = mol.getAtomBonds(mol.getAtomWithIdx(i));
-            uint32_t count = 0;
-            for (; begin != end; ++begin) {
-                count += (mol[*begin]->getBondType() == type);
-            }
-            *data = FeatureValues<T>::convertToFeatureType(MT(count));
-            data += stride;
+    case AtomFloatFeature::TRIPLE_BOND: {
+      const RDKit::ROMol&         mol = *graph.mol.get();
+      const RDKit::Bond::BondType type =
+        (feature == AtomFloatFeature::SINGLE_BOND) ?
+          RDKit::Bond::SINGLE :
+          ((feature == AtomFloatFeature::AROMATIC_BOND) ?
+             RDKit::Bond::AROMATIC :
+             ((feature == AtomFloatFeature::DOUBLE_BOND) ? RDKit::Bond::DOUBLE : (RDKit::Bond::TRIPLE)));
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        auto [begin, end] = mol.getAtomBonds(mol.getAtomWithIdx(i));
+        uint32_t count    = 0;
+        for (; begin != end; ++begin) {
+          count += (mol[*begin]->getBondType() == type);
         }
-        return;
+        *data = FeatureValues<T>::convertToFeatureType(MT(count));
+        data += stride;
+      }
+      return;
     }
     case AtomFloatFeature::IS_CARBON: {
-        const MT offset = offset_carbon ? MT(1) : MT(0);
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            *data = FeatureValues<T>::convertToFeatureType(MT(graph.atoms[i].atomicNum == carbon_atomic_num) - offset);
-            data += stride;
-        }
-        return;
+      const MT offset = offset_carbon ? MT(1) : MT(0);
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        *data = FeatureValues<T>::convertToFeatureType(MT(graph.atoms[i].atomicNum == carbon_atomic_num) - offset);
+        data += stride;
+      }
+      return;
     }
     case AtomFloatFeature::HYDROGEN_BOND_DONOR: {
-        const RDKit::ROMol& mol = *graph.mol.get();
-        std::string hbd_smarts = "[$([N;!H0;v3,v4&+1]),$([O,S;H1;+0]),n&H1&+0]";
-        std::unique_ptr<RDKit::RWMol> hbd_mol(RDKit::SmartsToMol(hbd_smarts));
+      const RDKit::ROMol&           mol        = *graph.mol.get();
+      std::string                   hbd_smarts = "[$([N;!H0;v3,v4&+1]),$([O,S;H1;+0]),n&H1&+0]";
+      std::unique_ptr<RDKit::RWMol> hbd_mol(RDKit::SmartsToMol(hbd_smarts));
 
-        std::vector<RDKit::MatchVectType> matches;
-        RDKit::SubstructMatch(mol, *hbd_mol, matches);
+      std::vector<RDKit::MatchVectType> matches;
+      RDKit::SubstructMatch(mol, *hbd_mol, matches);
 
-        // Initialize all values to 0
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            data[i * stride] = FeatureValues<T>::convertToFeatureType(MT(0));
-        }
-        for (const auto& match : matches) {
-            data[match[0].second * stride] = FeatureValues<T>::convertToFeatureType(MT(1));
-        }
-        return;
+      // Initialize all values to 0
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        data[i * stride] = FeatureValues<T>::convertToFeatureType(MT(0));
+      }
+      for (const auto& match : matches) {
+        data[match[0].second * stride] = FeatureValues<T>::convertToFeatureType(MT(1));
+      }
+      return;
     }
     case AtomFloatFeature::HYDROGEN_BOND_ACCEPTOR: {
-        const RDKit::ROMol& mol = *graph.mol.get();
-        std::string hba_smarts = "[$([O,S;H1;v2;!$(*-*=[O,N,P,S])]),$([O,S;H0;v2]),$([O,S;-]),$([N;v3;!$(N-*=[O,N,P,S])]),"
-            "n&H0&+0,$([o,s;+0;!$([o,s]:n);!$([o,s]:c:n)])]";
-        std::unique_ptr<RDKit::RWMol> hba_mol(RDKit::SmartsToMol(hba_smarts));
+      const RDKit::ROMol& mol = *graph.mol.get();
+      std::string         hba_smarts =
+        "[$([O,S;H1;v2;!$(*-*=[O,N,P,S])]),$([O,S;H0;v2]),$([O,S;-]),$([N;v3;!$(N-*=[O,N,P,S])]),"
+        "n&H0&+0,$([o,s;+0;!$([o,s]:n);!$([o,s]:c:n)])]";
+      std::unique_ptr<RDKit::RWMol> hba_mol(RDKit::SmartsToMol(hba_smarts));
 
-        std::vector<RDKit::MatchVectType> matches;
+      std::vector<RDKit::MatchVectType> matches;
 
-        // Initialize all values to 0
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            data[i * stride] = FeatureValues<T>::convertToFeatureType(MT(0));
-        }
-        RDKit::SubstructMatch(mol, *hba_mol, matches);
-        for (const auto& match : matches) {
-            data[match[0].second * stride] = FeatureValues<T>::convertToFeatureType(MT(1));
-        }
-        return;
+      // Initialize all values to 0
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        data[i * stride] = FeatureValues<T>::convertToFeatureType(MT(0));
+      }
+      RDKit::SubstructMatch(mol, *hba_mol, matches);
+      for (const auto& match : matches) {
+        data[match[0].second * stride] = FeatureValues<T>::convertToFeatureType(MT(1));
+      }
+      return;
     }
     case AtomFloatFeature::ACIDIC: {
-        const RDKit::ROMol& mol = *graph.mol.get();
-        std::string acidic_smarts = "[$([C,S](=[O,S,P])-[O;H1,-1])]";
-        std::unique_ptr<RDKit::RWMol> acidic_mol(RDKit::SmartsToMol(acidic_smarts));
+      const RDKit::ROMol&           mol           = *graph.mol.get();
+      std::string                   acidic_smarts = "[$([C,S](=[O,S,P])-[O;H1,-1])]";
+      std::unique_ptr<RDKit::RWMol> acidic_mol(RDKit::SmartsToMol(acidic_smarts));
 
-        std::vector<RDKit::MatchVectType> matches;
-        RDKit::SubstructMatch(mol, *acidic_mol, matches);
+      std::vector<RDKit::MatchVectType> matches;
+      RDKit::SubstructMatch(mol, *acidic_mol, matches);
 
-        // Initialize all values to 0
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            data[i * stride] = FeatureValues<T>::convertToFeatureType(MT(0));
-        }
-        for (const auto& match : matches) {
-            data[match[0].second * stride] = FeatureValues<T>::convertToFeatureType(MT(1));
-        }
-        return;
+      // Initialize all values to 0
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        data[i * stride] = FeatureValues<T>::convertToFeatureType(MT(0));
+      }
+      for (const auto& match : matches) {
+        data[match[0].second * stride] = FeatureValues<T>::convertToFeatureType(MT(1));
+      }
+      return;
     }
     case AtomFloatFeature::BASIC: {
-        const RDKit::ROMol& mol = *graph.mol.get();
-        std::string basic_smarts = "[#7;+,$([N;H2&+0][$([C,a]);!$([C,a](=O))]),$([N;H1&+0]([$([C,a]);!$([C,a](=O))])[$([C,a]);!$([C,a](=O))]),$([N;H0&+0]([C;!$(C(=O))])([C;!$(C(=O))])[C;!$(C(=O))])]";
-        std::unique_ptr<RDKit::RWMol> basic_mol(RDKit::SmartsToMol(basic_smarts));
+      const RDKit::ROMol& mol = *graph.mol.get();
+      std::string         basic_smarts =
+        "[#7;+,$([N;H2&+0][$([C,a]);!$([C,a](=O))]),$([N;H1&+0]([$([C,a]);!$([C,a](=O))])[$([C,a]);!$([C,a](=O))]),$([N;H0&+0]([C;!$(C(=O))])([C;!$(C(=O))])[C;!$(C(=O))])]";
+      std::unique_ptr<RDKit::RWMol> basic_mol(RDKit::SmartsToMol(basic_smarts));
 
-        std::vector<RDKit::MatchVectType> matches;
-        RDKit::SubstructMatch(mol, *basic_mol, matches);
+      std::vector<RDKit::MatchVectType> matches;
+      RDKit::SubstructMatch(mol, *basic_mol, matches);
 
-        // Initialize all values to 0
-        for (uint32_t i = 0; i < num_atoms; ++i) {
-            data[i * stride] = FeatureValues<T>::convertToFeatureType(MT(0));
-        }
-        for (const auto& match : matches) {
-            data[match[0].second * stride] = FeatureValues<T>::convertToFeatureType(MT(1));
-        }
-        return;
+      // Initialize all values to 0
+      for (uint32_t i = 0; i < num_atoms; ++i) {
+        data[i * stride] = FeatureValues<T>::convertToFeatureType(MT(0));
+      }
+      for (const auto& match : matches) {
+        data[match[0].second * stride] = FeatureValues<T>::convertToFeatureType(MT(1));
+      }
+      return;
     }
     default:
-        break;
-    }
+      break;
+  }
 
-    // Missing implementation
-    assert(0);
-    for (uint32_t i = 0; i < num_atoms; ++i) {
-        *data = FeatureValues<T>::nan_value;
-        data += stride;
-    }
+  // Missing implementation
+  assert(0);
+  for (uint32_t i = 0; i < num_atoms; ++i) {
+    *data = FeatureValues<T>::nan_value;
+    data += stride;
+  }
 }
 
 // Explicit instantiations, so that the function can be templated
 // but still be used from other cpp files.
-template void get_atom_float_feature<int16_t>(const GraphData& graph, int16_t* data, AtomFloatFeature feature, size_t stride, bool offset_carbon);
-template void get_atom_float_feature<float>(const GraphData& graph, float* data, AtomFloatFeature feature, size_t stride, bool offset_carbon);
-template void get_atom_float_feature<double>(const GraphData& graph, double* data, AtomFloatFeature feature, size_t stride, bool offset_carbon);
-
+template void get_atom_float_feature<int16_t>(const GraphData& graph,
+                                              int16_t*         data,
+                                              AtomFloatFeature feature,
+                                              size_t           stride,
+                                              bool             offset_carbon);
+template void get_atom_float_feature<float>(const GraphData& graph,
+                                            float*           data,
+                                            AtomFloatFeature feature,
+                                            size_t           stride,
+                                            bool             offset_carbon);
+template void get_atom_float_feature<double>(const GraphData& graph,
+                                             double*          data,
+                                             AtomFloatFeature feature,
+                                             size_t           stride,
+                                             bool             offset_carbon);
 
 // Fills in a particular bond float `feature` into `data`, for all bonds.
 // See the declaration in float_features.h for more details.
-template<typename T>
-void get_bond_float_feature(const GraphData& graph, T* data, BondFeature feature, size_t stride) {
-    const uint32_t num_bonds = graph.num_bonds;
-    switch (feature) {
+template <typename T> void get_bond_float_feature(const GraphData& graph, T* data, BondFeature feature, size_t stride) {
+  const uint32_t num_bonds = graph.num_bonds;
+  switch (feature) {
     case BondFeature::IS_NULL: {
-        const RDKit::ROMol& mol = *graph.mol.get();
-        for (size_t i = 0; i < num_bonds; ++i, data += stride) {
-            *data = (mol.getBondWithIdx(i) == nullptr) ? FeatureValues<T>::one : FeatureValues<T>::zero;
-        }
-        return;
+      const RDKit::ROMol& mol = *graph.mol.get();
+      for (size_t i = 0; i < num_bonds; ++i, data += stride) {
+        *data = (mol.getBondWithIdx(i) == nullptr) ? FeatureValues<T>::one : FeatureValues<T>::zero;
+      }
+      return;
     }
     case BondFeature::TYPE_FLOAT: {
-        const RDKit::ROMol& mol = *graph.mol.get();
-        for (size_t i = 0; i < num_bonds; ++i, data += stride) {
-            auto type = graph.bonds[i].bondType;
-            double value = 0;
-            switch (type) {
-            case RDKit::Bond::BondType::SINGLE: value = 1.0; break;
-            case RDKit::Bond::BondType::DOUBLE: value = 2.0; break;
-            case RDKit::Bond::BondType::TRIPLE: value = 3.0; break;
-            case RDKit::Bond::BondType::AROMATIC: value = 1.5; break;
-            default: value = mol.getBondWithIdx(i)->getBondTypeAsDouble();
-            }
-            *data = FeatureValues<T>::convertToFeatureType(value);
+      const RDKit::ROMol& mol = *graph.mol.get();
+      for (size_t i = 0; i < num_bonds; ++i, data += stride) {
+        auto   type  = graph.bonds[i].bondType;
+        double value = 0;
+        switch (type) {
+          case RDKit::Bond::BondType::SINGLE:
+            value = 1.0;
+            break;
+          case RDKit::Bond::BondType::DOUBLE:
+            value = 2.0;
+            break;
+          case RDKit::Bond::BondType::TRIPLE:
+            value = 3.0;
+            break;
+          case RDKit::Bond::BondType::AROMATIC:
+            value = 1.5;
+            break;
+          default:
+            value = mol.getBondWithIdx(i)->getBondTypeAsDouble();
         }
-        return;
+        *data = FeatureValues<T>::convertToFeatureType(value);
+      }
+      return;
     }
     case BondFeature::IN_RING: {
-        const RDKit::ROMol& mol = *graph.mol.get();
-        for (size_t i = 0; i < num_bonds; ++i, data += stride) {
-            bool is_in_ring = mol.getRingInfo()->numBondRings(i) != 0;
-            *data = is_in_ring ? FeatureValues<T>::one : FeatureValues<T>::zero;
-        }
-        return;
+      const RDKit::ROMol& mol = *graph.mol.get();
+      for (size_t i = 0; i < num_bonds; ++i, data += stride) {
+        bool is_in_ring = mol.getRingInfo()->numBondRings(i) != 0;
+        *data           = is_in_ring ? FeatureValues<T>::one : FeatureValues<T>::zero;
+      }
+      return;
     }
     case BondFeature::CONJUGATED: {
-        for (size_t i = 0; i < num_bonds; ++i, data += stride) {
-            bool is_conjugated = graph.bonds[i].isConjugated;
-            *data = is_conjugated ? FeatureValues<T>::one : FeatureValues<T>::zero;
-        }
-        return;
+      for (size_t i = 0; i < num_bonds; ++i, data += stride) {
+        bool is_conjugated = graph.bonds[i].isConjugated;
+        *data              = is_conjugated ? FeatureValues<T>::one : FeatureValues<T>::zero;
+      }
+      return;
     }
     default:
-        // Missing implementation
-        assert(0);
-        for (uint32_t i = 0; i < num_bonds; ++i, data += stride) {
-            *data = FeatureValues<T>::nan_value;
-        }
-        return;
-    }
+      // Missing implementation
+      assert(0);
+      for (uint32_t i = 0; i < num_bonds; ++i, data += stride) {
+        *data = FeatureValues<T>::nan_value;
+      }
+      return;
+  }
 }
 
 // Explicit instantiations, so that the function can be templated
 // but still be used from other cpp files.
-template void get_bond_float_feature<int16_t>(const GraphData& graph, int16_t* data, BondFeature feature, size_t stride);
+template void get_bond_float_feature<int16_t>(const GraphData& graph,
+                                              int16_t*         data,
+                                              BondFeature      feature,
+                                              size_t           stride);
 template void get_bond_float_feature<float>(const GraphData& graph, float* data, BondFeature feature, size_t stride);
 template void get_bond_float_feature<double>(const GraphData& graph, double* data, BondFeature feature, size_t stride);

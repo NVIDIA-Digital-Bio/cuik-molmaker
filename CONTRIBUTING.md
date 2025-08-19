@@ -1,19 +1,21 @@
-## `cuik-molmaker` contribution rules
-Thank you for your interest in contributing to cuik-molmaker! Here are guidelines for contributing:
+# `cuik-molmaker` contribution rules
+Thank you for your interest in contributing to `cuik-molmaker`! Here are guidelines for contributing:
 
-### Reporting Bugs
+## Reporting Bugs
 1. Check if the bug has already been reported in the Issues section
 2. If not, create a new issue with:
-   - A clear, descriptive title
+   - A clear and descriptive title
    - Steps to reproduce the bug
    - Expected behavior vs actual behavior
    - Your environment details (OS, Python version, package versions)
    - Any relevant error messages or logs
 
-### Making Contributions
+## Making Contributions
 1. Fork the repository and create a new branch from `main`
 2. Make your changes following our code style:
-   - Use consistent indentation (spaces)
+   - Lint all files that are added or modified. We use `black`, `isort`, `flake8` for python and `clang-format` for C++ code.
+      - First time only: `pre-commit install`
+      - `pre-commit run --all-files`
    - Add comments for complex logic
    - Follow existing naming conventions
    - Add tests for new functionality
@@ -32,7 +34,7 @@ Thank you for your interest in contributing to cuik-molmaker! Here are guideline
 
 5. The PR will be reviewed by maintainers who may request changes
 
-### Code Review Process
+## Code Review Process
 - All submissions require review
 - Maintainers will review PRs regularly
 - Address review feedback promptly

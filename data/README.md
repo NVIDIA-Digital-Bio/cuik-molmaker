@@ -1,0 +1,1 @@
+Normalization parameters in `descriptastorus_normalization_params.json` were copied from the [descriptastorus](https://github.com/bp-kelley/descriptastorus) package on June 16th, 2025. The `descriptastorus_normalization_params.json` file was reformatted to suit the needs of this project.
