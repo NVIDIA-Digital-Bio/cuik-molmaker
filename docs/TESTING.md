@@ -34,14 +34,15 @@ LD_LIBRARY_PATH=./lib ./catch2_tests
 
 
 ## Running python tests using pytest
-#### Install `cuik-molmaker` from pre-built wheel.
-Ensure prerequisites are installed using conda. See [README.md](../README.md) for more details.
+### Install `cuik-molmaker`
+Install a wheel compatible with your RDKit version from conda-forge. See
+[COMPATIBILITY.md](COMPATIBILITY.md) for the available builds.
 ```bash
-python scripts/check_and_install_cuik_molmaker.py
+conda install -c conda-forge cuik_molmaker
 ```
 Alternatively, you can build and install `cuik-molmaker` from source. See [BUILD.md](BUILD.md) for more details.
 
-#### Run pytest
+### Run pytest
 ```bash
 pytest tests/python
 ```

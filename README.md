@@ -5,25 +5,25 @@
 
 
 ## Quick start
-#### Setup conda environment
+### Conda installation
 ```bash
-# Set environment variables
-export PYTHON_VERSION=3.11
-export RDKIT_VERSION=2025.03.2
-
-conda create -n cuik_molmaker_env python=${PYTHON_VERSION} conda-forge::rdkit==${RDKIT_VERSION} conda-forge::pybind11==2.13.6 conda-forge::libboost-devel==1.86.0 conda-forge::libboost-python-devel==1.86.0 
-
-conda activate cuik_molmaker_env
-```
-This step is optional if you already have a conda environment with the required dependencies.
-
-#### Install wheel from [NVIDIA PyPI](https://pypi.nvidia.com)
-We provide a handy script to install the wheel from NVIDIA PyPI based on your OS and other dependencies.
-```bash
-python scripts/check_and_install_cuik_molmaker.py
+conda install -c conda-forge cuik_molmaker
 ```
 
-#### Usage: Computing atom and bond features
+
+### Pip installation
+```bash
+python -m pip install cuik-molmaker-pin==<RDKit version>
+```
+
+### Pip installation from NVIDIA PyPI
+```bash
+python -m pip install cuik-molmaker --extra-index-url https://pypi.nvidia.com/rdkit-2026.03.4/
+```
+
+For more information on the available versions of `cuik-molmaker` compatible with different versions of `rdkit`, refer to the [COMPATIBILITY.md](docs/COMPATIBILITY.md).
+
+### Usage: Computing atom and bond features
 ```python
 import cuik_molmaker
 import numpy as np
@@ -57,7 +57,7 @@ print(all_features[1].shape)
 print(all_features[2].shape)
 ```
 
-#### Usage: Computing molecular descriptors
+### Usage: Computing molecular descriptors
 ```python
 from cuik_molmaker.mol_features import MoleculeFeaturizer
 
@@ -84,11 +84,12 @@ The hybrid C++/Python design of `cuik-molmaker` allows for the core featurizatio
 | [FEATURES.md](docs/FEATURES.md) | Detailed list and explanation of all atom and bond features available for featurization. |
 | [BUILD.md](docs/BUILD.md) | Step-by-step instructions for building `cuik-molmaker` from source, including prerequisites and troubleshooting. |
 | [TESTING.md](docs/TESTING.md) | Guidelines and commands for running the test suite to verify installation and functionality. |
+| [COMPATIBILITY.md](docs/COMPATIBILITY.md) | Published package builds by release channel, OS, and Python version. |
 
 ## Hardware Requirements
 `cuik-molmaker` is designed to run on any CPU-based system.
 
 ## Adoption
 `cuik-molmaker` has currently been integrated into the following projects:
-- [Chemprop](https://github.com/chemprop/chemprop): `cuik-molmaker` is available for use with conda and Docker installations of Chemprop. It can be enabled by setting `--use-cuikmolmaker-featurization` flag in the command line with all use cases: training, prediction, fingerprinting, and hyperparameter optimization.
-
+- [Chemprop](https://github.com/chemprop/chemprop): `cuik-molmaker` is available as a featurization method in Chemprop. It can be enabled by setting `--use-cuikmolmaker-featurization` flag in the command line with all use cases: training, prediction, fingerprinting, and hyperparameter optimization.
+- [KERMT](https://github.com/NVIDIA-BioNeMo/KERMT): `cuik-molmaker` is available for featurizing atoms, bonds, and molecules in KERMT. Atom and bond featurization can be enabled by setting `--use_cuikmolmaker_featurization` flag and molecule featurization can be enabled by setting `--features_generator=rdkit_2d_normalized_cuik_molmaker`.
