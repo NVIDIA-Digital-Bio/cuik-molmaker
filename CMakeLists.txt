@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 cmake_minimum_required(VERSION 3.15)
-project(cuik_molmaker_cpp VERSION 0.3.0 LANGUAGES CXX)
+project(cuik_molmaker_cpp VERSION 0.3.1 LANGUAGES CXX)
 
 # Set C++20 standard
 set(CMAKE_CXX_STANDARD 20)
@@ -243,15 +243,17 @@ if(APPLE)
 endif()
 
 if(CUIKMOLMAKER_BUILD_AGAINST_PIP_RDKIT)
-    if(UNIX)
+    # NOTE: APPLE must be checked before UNIX because CMake sets both to TRUE on
+    # macOS. macOS uses @loader_path (dyld does not understand the ELF $ORIGIN
+    # token), whereas Linux uses $ORIGIN.
+    if(APPLE)
         set_target_properties(cuik_molmaker_core PROPERTIES
-            INSTALL_RPATH "$ORIGIN/../../rdkit.libs;$ORIGIN/../../../.."
+            INSTALL_RPATH "@loader_path/../../rdkit.libs;@loader_path/../../../.."
             BUILD_WITH_INSTALL_RPATH TRUE
         )
-    elseif(APPLE)
-        # TODO: Figure this out for MacOS
+    elseif(UNIX)
         set_target_properties(cuik_molmaker_core PROPERTIES
-            INSTALL_RPATH "$ORIGIN/../../../.."
+            INSTALL_RPATH "$ORIGIN/../../rdkit.libs;$ORIGIN/../../../.."
             BUILD_WITH_INSTALL_RPATH TRUE
         )
     else()
@@ -262,7 +264,17 @@ if(CUIKMOLMAKER_BUILD_AGAINST_PIP_RDKIT)
         )
     endif()
 else()
-    if(APPLE OR UNIX)
+    # NOTE: APPLE must be checked before UNIX because CMake sets both to TRUE on
+    # macOS. The core dylib is installed at site-packages/cuik_molmaker/lib/, so
+    # four levels up is $PREFIX/lib where the conda RDKit/Boost/libc++ libraries
+    # live. macOS uses @loader_path (dyld does not understand $ORIGIN); Linux
+    # uses $ORIGIN.
+    if(APPLE)
+        set_target_properties(cuik_molmaker_core PROPERTIES
+            INSTALL_RPATH "@loader_path/../../../.."
+            BUILD_WITH_INSTALL_RPATH TRUE
+        )
+    elseif(UNIX)
         set_target_properties(cuik_molmaker_core PROPERTIES
             INSTALL_RPATH "$ORIGIN/../../../.."
             BUILD_WITH_INSTALL_RPATH TRUE
@@ -274,7 +286,7 @@ else()
         # set_target_properties(cuik_molmaker_core PROPERTIES
         #     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}"
         # )
-    endif(APPLE OR UNIX)
+    endif()
 endif(CUIKMOLMAKER_BUILD_AGAINST_PIP_RDKIT)
 
     # Create the Python module using the core library

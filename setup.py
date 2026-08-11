@@ -14,7 +14,7 @@ from setuptools import find_packages, setup
 from setuptools.command.build_ext import build_ext
 
 # Version for the cuik_molmaker package (cuik_molmaker_pin uses RDKIT_VERSION instead).
-CUIK_MOLMAKER_VERSION = "0.3.0"
+CUIK_MOLMAKER_VERSION = "0.3.1"
 
 # Set global vars
 RDKIT_VERSION = os.environ.get("RDKIT_VERSION")
@@ -211,7 +211,11 @@ if SYSTEM == "Darwin":  # macOS
     lib_dir = os.path.join(dest_dir, "lib")
     lib_file = os.path.join("build", f"libcuik_molmaker_core.{lib_extension}")
 elif SYSTEM == "Linux":
-    so_suffix = f"cpython-{PYTHON_DIGIT_ONLY_VERSION}-x86_64-linux-gnu.so"
+    # Derive the architecture from the running interpreter (e.g. "x86_64",
+    # "aarch64") instead of hardcoding it, so the extension is found on all
+    # Linux architectures. This matches the suffix CPython/pybind11 emit.
+    machine = platform.machine()
+    so_suffix = f"cpython-{PYTHON_DIGIT_ONLY_VERSION}-{machine}-linux-gnu.so"
     lib_extension = "so"
     lib_dir = os.path.join(dest_dir, "lib")
     lib_file = os.path.join("build", f"libcuik_molmaker_core.{lib_extension}")
